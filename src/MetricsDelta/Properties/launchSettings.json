@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "MetricsDelta": {
+      "commandName": "Project",
+      "commandLineArgs": "--previousMetricsFilePath \"D:\\Projects\\Programing\\GIT\\MetricsDelta\\test\\previous.xml\" --currentMetricsFilePath \"D:\\Projects\\Programing\\GIT\\MetricsDelta\\test\\current.xml\" --failOnDeltaDegradation \"true\" --reportFilePath \"D:\\Projects\\Programing\\GIT\\MetricsDelta\\test\\output.xml\" \r\n\r\n"
+    }
+  }
+}
