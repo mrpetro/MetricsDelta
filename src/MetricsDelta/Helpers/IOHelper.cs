@@ -28,10 +28,10 @@ namespace MetricsDelta.Helpers
             {
                 return func.Invoke();
             }
-            catch (Exception ex)
+            catch
             {
                 if (tryCounter >= numberOfTries)
-                    throw ex;
+                    throw;
 
                 Thread.Sleep(waitTimeMS);
 
