@@ -1,9 +1,26 @@
-﻿using MetricsDelta.Model;
+﻿using MetricsDelta.Configuration;
+using MetricsDelta.Model;
+using Microsoft.Extensions.Options;
 
 namespace MetricsDelta
 {
     internal class GradeProvider : IGradeProvider
     {
+        #region Private Fields
+
+        private readonly MetricThresholdsCfg thresholdsCfg;
+
+        #endregion Private Fields
+
+        #region Public Constructors
+
+        public GradeProvider(IOptions<MetricDeltaCfg> options)
+        {
+            thresholdsCfg = options.Value.Thresholds;
+        }
+
+        #endregion Public Constructors
+
         #region Public Methods
 
         public DeltaSeverity GetDeltaSeverity(string metricName, int delta)
@@ -60,7 +77,7 @@ namespace MetricsDelta
             }
         }
 
-        #endregion
+        #endregion Public Methods
 
         #region Private Methods
 
@@ -101,32 +118,16 @@ namespace MetricsDelta
         }
 
         private MetricGrade GradeMaintainabilityIndex(int value)
-        {
-            if (value < 10) return MetricGrade.Fatal;
-            else if (value >= 10 && value < 20) return MetricGrade.Poor;
-            else return MetricGrade.Good;
-        }
+            => GradeHigherTheBetter(value, thresholdsCfg.MaintainabilityIndex);
 
         private MetricGrade GradeCyclomaticComplexity(int value)
-        {
-            if (value < 10) return MetricGrade.Good;
-            else if (value >= 10 && value < 20) return MetricGrade.Poor;
-            else return MetricGrade.Fatal;
-        }
+            => GradeLowerTheBetter(value, thresholdsCfg.CyclomaticComplexity);
 
         private MetricGrade GradeClassCoupling(int value)
-        {
-            if (value < 50) return MetricGrade.Good;
-            else if (value >= 50 && value < 300) return MetricGrade.Poor;
-            else return MetricGrade.Fatal;
-        }
+            => GradeLowerTheBetter(value, thresholdsCfg.ClassCoupling);
 
         private MetricGrade GradeDepthOfInheritance(int value)
-        {
-            if (value < 3) return MetricGrade.Good;
-            else if (value >= 3 && value < 5) return MetricGrade.Poor;
-            else return MetricGrade.Fatal;
-        }
+            => GradeLowerTheBetter(value, thresholdsCfg.DepthOfInheritance);
 
         private MetricGrade GradeSourceLines(int value)
         {
@@ -138,7 +139,20 @@ namespace MetricsDelta
             return MetricGrade.Good;
         }
 
+        private MetricGrade GradeHigherTheBetter(int value, MetricThresholdCfg cfg)
+        {
+            if (value < cfg.Poor) return MetricGrade.Bad;
+            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
+            else return MetricGrade.Good;
+        }
 
-        #endregion
+        private MetricGrade GradeLowerTheBetter(int value, MetricThresholdCfg cfg)
+        {
+            if (value < cfg.Poor) return MetricGrade.Good;
+            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
+            else return MetricGrade.Bad;
+        }
+
+        #endregion Private Methods
     }
 }

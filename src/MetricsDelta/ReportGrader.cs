@@ -2,26 +2,6 @@
 
 namespace MetricsDelta
 {
-    public class MetricThreshold
-    {
-        #region Public Constructors
-
-        public MetricThreshold(int warning, int error)
-        {
-            Warning = warning;
-            Error = error;
-        }
-
-        #endregion Public Constructors
-
-        #region Public Properties
-
-        public int Warning { get; }
-        public int Error { get; }
-
-        #endregion Public Properties
-    }
-
     public class ReportGrader : IReportVisitor
     {
         #region Private Fields
@@ -49,7 +29,7 @@ namespace MetricsDelta
         #region Public Properties
 
         public bool AnyDeltaDegradations { get; private set; }
-        public bool AnyFatalMetricGrades { get; private set; }
+        public bool AnyBadMetricGrades { get; private set; }
 
         #endregion Public Properties
 
@@ -72,11 +52,10 @@ namespace MetricsDelta
                     logger.LogWarning($"Poor metric '{metricName}' = {value}");
                     break;
 
-                case MetricGrade.Fatal:
+                case MetricGrade.Bad:
 
-                    AnyFatalMetricGrades = true;
-
-                    logger.LogError($"Fatal metric '{metricName}' = {value}");
+                    AnyBadMetricGrades = true;
+                    logger.LogError($"Bad metric '{metricName}' = {value}");
                     break;
 
                 default:

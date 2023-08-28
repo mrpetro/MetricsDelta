@@ -8,6 +8,8 @@ using System.CommandLine;
 using System.CommandLine.Invocation;
 using System.CommandLine.Parsing;
 using Microsoft.Extensions.DependencyInjection;
+using System.Runtime.CompilerServices;
+using MetricsDelta.Configuration;
 
 namespace MetricsDelta.Extensions
 {
@@ -18,28 +20,28 @@ namespace MetricsDelta.Extensions
     {
         #region Public Methods
 
-        public static void SetupMetricsReportGrader(this IHostBuilder hostBuilder)
+        public static IHostBuilder SetupMetricsReportGrader(this IHostBuilder hostBuilder)
         {
-            hostBuilder.ConfigureServices((hostContext, services) => services.AddReportGrader());
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddReportGrader());
         }
 
-        public static void SetupMetricsReportStripper(this IHostBuilder hostBuilder)
+        public static IHostBuilder SetupMetricsReportStripper(this IHostBuilder hostBuilder)
         {
-            hostBuilder.ConfigureServices((hostContext, services) => services.AddMetricsReportStripper());
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddMetricsReportStripper());
         }
 
-        public static void SetupGradeProvider(this IHostBuilder hostBuilder)
+        public static IHostBuilder SetupGradeProvider(this IHostBuilder hostBuilder)
         {
-            hostBuilder.ConfigureServices((hostContext, services) => services.AddGradeProvider());
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddGradeProvider());
         }
-        public static void SetupXmlReportWriter(this IHostBuilder hostBuilder)
+        public static IHostBuilder SetupXmlReportWriter(this IHostBuilder hostBuilder)
         {
-            hostBuilder.ConfigureServices((hostContext, services) => services.AddXmlReportWriter());
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddXmlReportWriter());
         }
 
-        public static void SetupCommandLine(this IHostBuilder hostBuilder, string[] args)
+        public static IHostBuilder SetupCommandLine(this IHostBuilder hostBuilder, string[] args)
         {
-            hostBuilder.ConfigureServices((sc) =>
+            return hostBuilder.ConfigureServices((sc) =>
             {
                 var previousMetricsFilePath = new Option<string>
                     (name: "--previousMetricsFilePath",
@@ -51,16 +53,6 @@ namespace MetricsDelta.Extensions
                     description: "Path to the current code metrics report file.",
                     getDefaultValue: () => "current.xml");
 
-                var failOnDeltaDegradation = new Option<bool>
-                    (name: "--failOnDeltaDegradation", 
-                    description: "Program will return 1 if there is at least one delta degradation.",
-                    getDefaultValue: () => true);
-
-                var failOnFatalMetricGrade = new Option<bool>
-                    (name: "--failOnFatalGrade",
-                    description: "Program will return 1 if there is at least one failed metric grade.",
-                    getDefaultValue: () => true);
-
                 var reportFilePath = new Option<string>
                     (name: "--reportFilePath",
                     description: "Path to the report file.",
@@ -70,20 +62,16 @@ namespace MetricsDelta.Extensions
                 {
                     previousMetricsFilePath,
                     currentMetricsFilePath,
-                    reportFilePath,
-                    failOnDeltaDegradation,
-                    failOnFatalMetricGrade
+                    reportFilePath
                 };
 
                 Configure(rootCommand, args, (result) =>
                 {
-                    sc.Configure<RunSettings>(settings =>
+                    sc.Configure<MetricDeltaCfg>(settings =>
                     {
                         settings.PreviousMetricsFilePath = result.GetValueForOption(previousMetricsFilePath);
                         settings.CurrentMetricsFilePath = result.GetValueForOption(currentMetricsFilePath);
                         settings.ReportFilePath = result.GetValueForOption(reportFilePath);
-                        settings.FailOnDeltaDegradation = result.GetValueForOption(failOnDeltaDegradation);
-                        settings.FailOnFatalMetricGrade = result.GetValueForOption(failOnFatalMetricGrade);
                     });
 
                 });

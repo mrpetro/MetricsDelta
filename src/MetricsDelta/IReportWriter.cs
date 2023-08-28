@@ -24,7 +24,7 @@ namespace MetricsDelta
     {
         Good,
         Poor,
-        Fatal
+        Bad
     }
 
     public interface IReportWriter

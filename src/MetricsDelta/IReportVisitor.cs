@@ -6,7 +6,7 @@
 
         bool AnyDeltaDegradations { get; }
 
-        bool AnyFatalMetricGrades { get; }
+        bool AnyBadMetricGrades { get; }
 
         void VisitMetric(DeltaState deltaState, string metricName, int currentValue, int delta);
 
