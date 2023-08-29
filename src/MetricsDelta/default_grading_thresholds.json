@@ -1,0 +1,28 @@
+{
+  "GradingThresholds": {
+    "MaintainabilityIndex": {
+      "Poor": 20,
+      "Bad": 10
+    },
+    "CyclomaticComplexity": {
+      "Poor": 50,
+      "Bad": 300
+    },
+    "ClassCoupling": {
+      "Poor": 10,
+      "Bad": 70
+    },
+    "DepthOfInheritance": {
+      "Poor": 3,
+      "Bad": 5
+    },
+    "ExecutableLines": {
+      "Poor": 500,
+      "Bad": 5000
+    },
+    "SourceLines": {
+      "Poor": 1000,
+      "Bad": 10000
+    }
+  }
+}

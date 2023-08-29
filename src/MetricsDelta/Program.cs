@@ -23,19 +23,27 @@ using var loggerFactory = LoggerFactory.Create(builder =>
 
 var logger = loggerFactory.CreateLogger<Program>();
 
-var hostBuilder = new HostBuilder().ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddJsonFile("appsettings.json", optional: true);
-    config.AddEnvironmentVariables();
-});
+var hostBuilder = new HostBuilder();
 
-var host = hostBuilder.ConfigureServices(ser => ser.AddSingleton<ILogger>(logger))
+var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
+{
+    var cfg = cfgBuilder.AddJsonFile("appsettings.json", optional: true)
+    .AddJsonFile("default_grading_thresholds.json", optional: true)
+    .AddEnvironmentVariables().Build();
+
+    hostBuilder.ConfigureServices(sc =>
+    {
+        {
+            sc.AddSingleton<ILogger>(logger);
+            sc.Configure<GradingThresholds>(cfg.GetSection("GradingThresholds"));
+       }
+    })
     .SetupCommandLine(args)
     .SetupMetricsReportGrader()
     .SetupGradeProvider()
     .SetupXmlReportWriter()
-    .SetupMetricsReportStripper()
-    .Build();
+    .SetupMetricsReportStripper();
+}).Build();
 
 var runSettings = host.Services.GetRequiredService<IOptions<MetricDeltaCfg>>();
 

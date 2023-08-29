@@ -29,6 +29,7 @@ namespace CSTest
         {
             ArgumentNullException.ThrowIfNull(previous);
             ArgumentNullException.ThrowIfNull(current);
+
             cancellationToken.ThrowIfCancellationRequested();
 
             visitor.BeginVisitReport();

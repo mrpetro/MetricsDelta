@@ -8,15 +8,15 @@ namespace MetricsDelta
     {
         #region Private Fields
 
-        private readonly MetricThresholdsCfg thresholdsCfg;
+        private readonly GradingThresholds thresholds;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public GradeProvider(IOptions<MetricDeltaCfg> options)
+        public GradeProvider(IOptions<GradingThresholds> options)
         {
-            thresholdsCfg = options.Value.Thresholds;
+            thresholds = options.Value;
         }
 
         #endregion Public Constructors
@@ -118,16 +118,16 @@ namespace MetricsDelta
         }
 
         private MetricGrade GradeMaintainabilityIndex(int value)
-            => GradeHigherTheBetter(value, thresholdsCfg.MaintainabilityIndex);
+            => GradeHigherTheBetter(value, thresholds.MaintainabilityIndex);
 
         private MetricGrade GradeCyclomaticComplexity(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.CyclomaticComplexity);
+            => GradeLowerTheBetter(value, thresholds.CyclomaticComplexity);
 
         private MetricGrade GradeClassCoupling(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.ClassCoupling);
+            => GradeLowerTheBetter(value, thresholds.ClassCoupling);
 
         private MetricGrade GradeDepthOfInheritance(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.DepthOfInheritance);
+            => GradeLowerTheBetter(value, thresholds.DepthOfInheritance);
 
         private MetricGrade GradeSourceLines(int value)
         {
@@ -139,14 +139,14 @@ namespace MetricsDelta
             return MetricGrade.Good;
         }
 
-        private MetricGrade GradeHigherTheBetter(int value, MetricThresholdCfg cfg)
+        private MetricGrade GradeHigherTheBetter(int value, GradingThreshold cfg)
         {
             if (value < cfg.Poor) return MetricGrade.Bad;
             else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
             else return MetricGrade.Good;
         }
 
-        private MetricGrade GradeLowerTheBetter(int value, MetricThresholdCfg cfg)
+        private MetricGrade GradeLowerTheBetter(int value, GradingThreshold cfg)
         {
             if (value < cfg.Poor) return MetricGrade.Good;
             else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
