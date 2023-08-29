@@ -71,23 +71,21 @@ try
     var deltaComparer = new ReportComparer(reportVisitor);
     deltaComparer.CompareAsync(previousModel, currentModel, tokenSource.Token).GetAwaiter().GetResult();
 
+    var result = 0;
 
     if (reportVisitor.AnyDeltaDegradations)
     {
         logger.LogError("Metric delta degradations detected.");
+        result |= 1;
     }
 
     if (reportVisitor.AnyBadMetricGrades)
     {
         logger.LogError("Bad metric grades detected.");
+        result |= 2;
     }
 
-    if (reportVisitor.AnyDeltaDegradations || reportVisitor.AnyBadMetricGrades)
-    {
-        return 1;
-    }
-
-    return 0;
+    return result;
 }
 catch (OperationCanceledException)
 {
