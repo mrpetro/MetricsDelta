@@ -17,55 +17,57 @@ using System.CommandLine.Parsing;
 using System.IO;
 using System.Xml;
 
-using var loggerFactory = LoggerFactory.Create(builder =>
-    builder.AddConsole()
-    );
+var rootClSettings = CLHelper.SetupCommandLine(args);
+
+using var loggerFactory = LoggerFactory.Create(builder => {
+    builder.ClearProviders();
+    builder.AddConsole();
+});
 
 var logger = loggerFactory.CreateLogger<Program>();
 
-var hostBuilder = new HostBuilder();
+var hostBuilder = new HostBuilder()
+    .SetupLogger(logger)
+    .SetupMetricsReportGrader()
+    .SetupGradeProvider()
+    .SetupXmlReportWriter(rootClSettings.ReportFilePath)
+    .SetupMetricsReportStripper();
 
 var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
 {
-    var cfg = cfgBuilder.AddJsonFile("appsettings.json", optional: true)
-    .AddJsonFile("default_grading_thresholds.json", optional: true)
-    .AddEnvironmentVariables().Build();
+    cfgBuilder.AddJsonFile("appsettings.json", optional: true);
+
+    if(File.Exists(rootClSettings.SettingsFilePath))
+        cfgBuilder.AddJsonFile(rootClSettings.SettingsFilePath, optional: true);
+
+    var cfgRoot = cfgBuilder.AddEnvironmentVariables()
+    .Build();
 
     hostBuilder.ConfigureServices(sc =>
     {
-        {
-            sc.AddSingleton<ILogger>(logger);
-            sc.Configure<GradingThresholds>(cfg.GetSection("GradingThresholds"));
-       }
-    })
-    .SetupCommandLine(args)
-    .SetupMetricsReportGrader()
-    .SetupGradeProvider()
-    .SetupXmlReportWriter()
-    .SetupMetricsReportStripper();
+        sc.Configure<GradingThresholds>(cfgRoot.GetSection("GradingThresholds"));
+    });
 }).Build();
 
-var runSettings = host.Services.GetRequiredService<IOptions<MetricDeltaCfg>>();
-
 if (!XmlHelper.TryRestoreFromXml(
-    runSettings.Value.PreviousMetricsFilePath,
+    rootClSettings.PreviousMetricsFilePath,
     out XmlCodeMetricsReport? previousModel,
     out string? errorMessage) || previousModel is null)
 {
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{runSettings.Value.PreviousMetricsFilePath}'. Reason: {errorMessage}");
+    logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.PreviousMetricsFilePath}'. Reason: {errorMessage}");
     return -1;
 }
 
 if (!XmlHelper.TryRestoreFromXml(
-    runSettings.Value.CurrentMetricsFilePath,
+    rootClSettings.CurrentMetricsFilePath,
     out XmlCodeMetricsReport? currentModel,
     out errorMessage) || currentModel is null)
 {
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{runSettings.Value.CurrentMetricsFilePath}'. Reason: {errorMessage}");
+    logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.CurrentMetricsFilePath}'. Reason: {errorMessage}");
     return -1;
 }
 
-var outputReportFilePath = runSettings.Value.ReportFilePath;
+var outputReportFilePath = rootClSettings.ReportFilePath;
 
 using var tokenSource = new CancellationTokenSource();
 Console.CancelKeyPress += delegate

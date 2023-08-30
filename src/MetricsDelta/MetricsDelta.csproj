@@ -23,11 +23,11 @@ Ie. Pipeline integration</Description>
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="default_grading_thresholds.json" />
+    <None Remove="appsettings.json" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="default_grading_thresholds.json">
+    <Content Include="appsettings.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>

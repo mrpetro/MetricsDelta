@@ -28,7 +28,7 @@ namespace MetricsDelta.Extensions
             return services;
         }
 
-        public static IServiceCollection AddXmlReportWriter(this IServiceCollection services)
+        public static IServiceCollection AddXmlReportWriter(this IServiceCollection services, string reportFilePath)
         {
             services.AddSingleton<IReportWriter, XmlReportWriter>((sp) =>
             {
@@ -37,9 +37,7 @@ namespace MetricsDelta.Extensions
                     Indent = true,
                 };
 
-                var options = sp.GetRequiredService<IOptions<MetricDeltaCfg>>();
-
-                return new XmlReportWriter(XmlWriter.Create(options.Value.ReportFilePath, sts));
+                return new XmlReportWriter(XmlWriter.Create(reportFilePath, sts));
             });
             return services;
         }

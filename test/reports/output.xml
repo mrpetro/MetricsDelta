@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport>
+  <Targets>
+    <Target Name="MetricsDelta.csproj" Status="Existing">
+      <Assembly Name="MetricsDelta, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="89" ValueGrade="Good" />
+          <Metric Name="CyclomaticComplexity" Value="234" ValueGrade="Poor" />
+          <Metric Name="ClassCoupling" Value="67" ValueGrade="Poor" />
+          <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="1210" ValueGrade="Good" />
+          <Metric Name="ExecutableLines" Value="248" ValueGrade="Good" />
+        </Metrics>
+      </Assembly>
+    </Target>
+    <Target Name="MetricsDelta.Test.csproj" Status="Existing">
+      <Assembly Name="MetricsDelta.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="100" ValueGrade="Good" />
+          <Metric Name="CyclomaticComplexity" Value="2" ValueGrade="Good" />
+          <Metric Name="ClassCoupling" Value="2" ValueGrade="Good" />
+          <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="11" ValueGrade="Good" />
+          <Metric Name="ExecutableLines" Value="0" ValueGrade="Good" />
+        </Metrics>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>
