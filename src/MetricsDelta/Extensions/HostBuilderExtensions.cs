@@ -21,11 +21,6 @@ namespace MetricsDelta.Extensions
     {
         #region Public Methods
 
-        public static IHostBuilder SetupLogger(this IHostBuilder hostBuilder, ILogger logger)
-        {
-            return hostBuilder.ConfigureServices((hostContext, services) => services.AddSingleton<ILogger>(logger));
-        }
-
         public static IHostBuilder SetupMetricsReportGrader(this IHostBuilder hostBuilder)
         {
             return hostBuilder.ConfigureServices((hostContext, services) => services.AddReportGrader());

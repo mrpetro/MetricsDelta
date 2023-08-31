@@ -93,7 +93,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(target.Name, DeltaState.New);
 
-            await ProcessNewAssemblyAsync(target.Assembly, cancellationToken);
+            if(target.Assembly is not null)
+                await ProcessNewAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.New);
 
@@ -154,7 +155,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(target.Name, DeltaState.Removed);
 
-            await ProcessRemovedAssemblyAsync(target.Assembly, cancellationToken);
+            if(target.Assembly is not null)
+                await ProcessRemovedAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.Removed);
 

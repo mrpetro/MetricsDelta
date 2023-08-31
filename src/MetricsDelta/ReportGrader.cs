@@ -8,7 +8,7 @@ namespace MetricsDelta
 
         private readonly IReportWriter reportWriter;
         private readonly IGradeProvider gradeProvider;
-        private readonly ILogger logger;
+        private readonly ILogger<ReportGrader> logger;
 
         #endregion Private Fields
 
@@ -17,7 +17,7 @@ namespace MetricsDelta
         public ReportGrader(
             IReportWriter reportBuilder,
             IGradeProvider gradeProvider,
-            ILogger logger)
+            ILogger<ReportGrader> logger)
         {
             this.reportWriter = reportBuilder;
             this.gradeProvider = gradeProvider;

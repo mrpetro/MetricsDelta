@@ -17,13 +17,11 @@ namespace MetricsDelta.Helpers
         {
             var previousMetricsFilePath = new Option<string>
                 (name: "--previousMetricsFilePath",
-                description: "Path to the previous code metrics report file.",
-                getDefaultValue: () => "previous.xml");
+                description: "Path to the previous code metrics report file.");
 
             var currentMetricsFilePath = new Option<string>
                 (name: "--currentMetricsFilePath",
-                description: "Path to the current code metrics report file.",
-                getDefaultValue: () => "current.xml");
+                description: "Path to the current code metrics report file.");
 
             var reportFilePath = new Option<string>
                 (name: "--reportFilePath",
@@ -43,7 +41,7 @@ namespace MetricsDelta.Helpers
                 settingsFilePath
             };
 
-            RootClSettings cfg = null;
+            var cfg = new RootClSettings();
 
             Configure(rootCommand, args, (result) =>
             {

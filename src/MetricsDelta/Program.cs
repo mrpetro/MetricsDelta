@@ -19,19 +19,17 @@ using System.Xml;
 
 var rootClSettings = CLHelper.SetupCommandLine(args);
 
-using var loggerFactory = LoggerFactory.Create(builder => {
-    builder.ClearProviders();
-    builder.AddConsole();
-});
-
-var logger = loggerFactory.CreateLogger<Program>();
-
 var hostBuilder = new HostBuilder()
-    .SetupLogger(logger)
     .SetupMetricsReportGrader()
     .SetupGradeProvider()
     .SetupXmlReportWriter(rootClSettings.ReportFilePath)
-    .SetupMetricsReportStripper();
+    .SetupMetricsReportStripper()
+    .ConfigureLogging((hostingContext, loggingBuilder) =>
+    {
+        loggingBuilder.ClearProviders();
+        loggingBuilder.AddConsole();
+        loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+    });
 
 var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
 {
@@ -49,34 +47,48 @@ var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
     });
 }).Build();
 
-if (!XmlHelper.TryRestoreFromXml(
-    rootClSettings.PreviousMetricsFilePath,
-    out XmlCodeMetricsReport? previousModel,
-    out string? errorMessage) || previousModel is null)
-{
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.PreviousMetricsFilePath}'. Reason: {errorMessage}");
-    return -1;
-}
-
-if (!XmlHelper.TryRestoreFromXml(
-    rootClSettings.CurrentMetricsFilePath,
-    out XmlCodeMetricsReport? currentModel,
-    out errorMessage) || currentModel is null)
-{
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.CurrentMetricsFilePath}'. Reason: {errorMessage}");
-    return -1;
-}
-
-var outputReportFilePath = rootClSettings.ReportFilePath;
-
-using var tokenSource = new CancellationTokenSource();
-Console.CancelKeyPress += delegate
-{
-    tokenSource.Cancel();
-};
+var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
 try
 {
+    if (!rootClSettings.ValidateSettings(logger))
+        return -1;
+
+    XmlCodeMetricsReport? previousModel = null;
+    XmlCodeMetricsReport? currentModel = null;
+
+    if (rootClSettings.PreviousMetricsFilePath is not null && !XmlHelper.TryRestoreFromXml(
+        rootClSettings.PreviousMetricsFilePath,
+        out previousModel,
+        out string? errorMessage))
+    {
+        logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.PreviousMetricsFilePath}'. Reason: {errorMessage}");
+        return -1;
+    }
+
+    if (rootClSettings.CurrentMetricsFilePath is not null && !XmlHelper.TryRestoreFromXml(
+        rootClSettings.CurrentMetricsFilePath,
+        out currentModel,
+        out errorMessage))
+    {
+        logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.CurrentMetricsFilePath}'. Reason: {errorMessage}");
+        return -1;
+    }
+
+    if (previousModel is null)
+        throw new InvalidOperationException($"{nameof(previousModel)} is not expected to be null here.");
+
+    if (currentModel is null)
+        throw new InvalidOperationException($"{nameof(currentModel)} is not expected to be null here.");
+
+    var outputReportFilePath = rootClSettings.ReportFilePath;
+
+    using var tokenSource = new CancellationTokenSource();
+    Console.CancelKeyPress += delegate
+    {
+        tokenSource.Cancel();
+    };
+
     var reportVisitor = host.Services.GetRequiredService<IReportVisitor>();
     var deltaComparer = new ReportComparer(reportVisitor);
     deltaComparer.CompareAsync(previousModel, currentModel, tokenSource.Token).GetAwaiter().GetResult();
