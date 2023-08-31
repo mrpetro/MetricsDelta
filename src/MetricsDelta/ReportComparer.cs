@@ -4,7 +4,7 @@ using MetricsDelta.Model;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
-namespace CSTest
+namespace MetricsDelta
 {
     public class ReportComparer
     {

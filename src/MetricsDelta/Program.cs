@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using CSTest;
 using MetricsDelta;
 using MetricsDelta.Configuration;
 using MetricsDelta.Extensions;

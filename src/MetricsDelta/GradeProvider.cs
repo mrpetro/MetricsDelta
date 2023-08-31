@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace MetricsDelta
 {
-    internal class GradeProvider : IGradeProvider
+    public class GradeProvider : IGradeProvider
     {
         #region Private Fields
 
@@ -47,49 +47,13 @@ namespace MetricsDelta
                     return GradeExecutableLines(value);
 
                 default:
-                    throw new NotImplementedException();
+                    throw new NotImplementedException(metricName);
             }
         }
 
         #endregion Public Methods
 
         #region Private Methods
-
-        private DeltaSeverity GradeMaintainabilityIndexDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta > 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeCyclomaticComplexityDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeClassCouplingDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeDepthOfInheritanceDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeSourceLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeExecutableLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
 
         private MetricGrade GradeMaintainabilityIndex(int value)
             => GradeHigherTheBetter(value, thresholds.MaintainabilityIndex);
@@ -104,20 +68,16 @@ namespace MetricsDelta
             => GradeLowerTheBetter(value, thresholds.DepthOfInheritance);
 
         private MetricGrade GradeSourceLines(int value)
-        {
-            return MetricGrade.Good;
-        }
+            => GradeLowerTheBetter(value, thresholds.SourceLines);
 
         private MetricGrade GradeExecutableLines(int value)
-        {
-            return MetricGrade.Good;
-        }
+            => GradeLowerTheBetter(value, thresholds.ExecutableLines);
 
         private MetricGrade GradeHigherTheBetter(int value, GradingThreshold cfg)
         {
-            if (value < cfg.Poor) return MetricGrade.Bad;
-            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
-            else return MetricGrade.Good;
+            if (value > cfg.Poor) return MetricGrade.Good;
+            else if (value <= cfg.Poor && value > cfg.Bad) return MetricGrade.Poor;
+            else return MetricGrade.Bad;
         }
 
         private MetricGrade GradeLowerTheBetter(int value, GradingThreshold cfg)
