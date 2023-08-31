@@ -4,7 +4,7 @@ using Microsoft.Extensions.Options;
 
 namespace MetricsDelta
 {
-    internal class GradeProvider : IGradeProvider
+    internal class DeltaSeverityProvider : IDeltaSeverityProvider
     {
         #region Private Fields
 
@@ -14,7 +14,7 @@ namespace MetricsDelta
 
         #region Public Constructors
 
-        public GradeProvider(IOptions<GradingThresholds> options)
+        public DeltaSeverityProvider(IOptions<GradingThresholds> options)
         {
             thresholds = options.Value;
         }
@@ -23,28 +23,27 @@ namespace MetricsDelta
 
         #region Public Methods
 
-
-        public MetricGrade GetValueGrade(string metricName, int value)
+        public DeltaSeverity GetDeltaSeverity(string metricName, int delta)
         {
             switch (metricName)
             {
                 case MetricDefinitions.MaintainabilityIndex:
-                    return GradeMaintainabilityIndex(value);
+                    return GradeMaintainabilityIndexDelta(delta);
 
                 case MetricDefinitions.SourceLines:
-                    return GradeSourceLines(value);
+                    return GradeSourceLinesDelta(delta);
 
                 case MetricDefinitions.ClassCoupling:
-                    return GradeClassCoupling(value);
+                    return GradeClassCouplingDelta(delta);
 
                 case MetricDefinitions.DepthOfInheritance:
-                    return GradeDepthOfInheritance(value);
+                    return GradeDepthOfInheritanceDelta(delta);
 
                 case MetricDefinitions.CyclomaticComplexity:
-                    return GradeCyclomaticComplexity(value);
+                    return GradeCyclomaticComplexityDelta(delta);
 
                 case MetricDefinitions.ExecutableLines:
-                    return GradeExecutableLines(value);
+                    return GradeExecutableLinesDelta(delta);
 
                 default:
                     throw new NotImplementedException();

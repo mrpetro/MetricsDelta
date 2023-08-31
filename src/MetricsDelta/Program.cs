@@ -22,6 +22,7 @@ var rootClSettings = CLHelper.SetupCommandLine(args);
 var hostBuilder = new HostBuilder()
     .SetupMetricsReportGrader()
     .SetupGradeProvider()
+    .SetupDeltaSeverityProvider()
     .SetupXmlReportWriter(rootClSettings.ReportFilePath)
     .SetupMetricsReportStripper()
     .ConfigureLogging((hostingContext, loggingBuilder) =>

@@ -28,6 +28,12 @@ namespace MetricsDelta.Extensions
             return services;
         }
 
+        public static IServiceCollection AddDeltaSeverityProvider(this IServiceCollection services)
+        {
+            services.TryAddSingleton<IDeltaSeverityProvider, DeltaSeverityProvider>();
+            return services;
+        }
+
         public static IServiceCollection AddXmlReportWriter(this IServiceCollection services, string reportFilePath)
         {
             services.AddSingleton<IReportWriter, XmlReportWriter>((sp) =>

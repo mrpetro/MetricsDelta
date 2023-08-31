@@ -142,7 +142,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(currentTarget.Name, DeltaState.Existing);
 
-            await ProcessExistingAssemblyAsync(previousTarget.Assembly, currentTarget.Assembly, cancellationToken);
+            if(previousTarget.Assembly is not null && currentTarget.Assembly is not null)
+                await ProcessExistingAssemblyAsync(previousTarget.Assembly, currentTarget.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(currentTarget.Name, DeltaState.Existing);
 

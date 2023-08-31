@@ -22,7 +22,7 @@ namespace MetricsDelta.Configuration
         /// <summary>
         /// Path to output code metrics report with delta and/or grading information.
         /// </summary>
-        public string? ReportFilePath { get; init; }
+        public string ReportFilePath { get; init; } = "report.xml";
 
         /// <summary>
         /// Path to MetricsDelta settings JSON file.
@@ -35,7 +35,7 @@ namespace MetricsDelta.Configuration
 
         public bool ValidateSettings(ILogger logger)
         {
-            if(string.IsNullOrWhiteSpace(PreviousMetricsFilePath))
+            if (string.IsNullOrWhiteSpace(PreviousMetricsFilePath))
             {
                 logger.LogError($"Parameter --PreviousMetricsFilePath not given or empty.");
                 return false;

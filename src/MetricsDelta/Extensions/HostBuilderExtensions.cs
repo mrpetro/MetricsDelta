@@ -35,6 +35,12 @@ namespace MetricsDelta.Extensions
         {
             return hostBuilder.ConfigureServices((hostContext, services) => services.AddGradeProvider());
         }
+
+        public static IHostBuilder SetupDeltaSeverityProvider(this IHostBuilder hostBuilder)
+        {
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddDeltaSeverityProvider());
+        }
+
         public static IHostBuilder SetupXmlReportWriter(this IHostBuilder hostBuilder, string reportFilePath)
         {
             return hostBuilder.ConfigureServices((hostContext, services) => services.AddXmlReportWriter(reportFilePath));
