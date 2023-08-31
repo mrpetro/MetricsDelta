@@ -8,7 +8,8 @@ namespace MetricsDelta
 
         private readonly IReportWriter reportWriter;
         private readonly IGradeProvider gradeProvider;
-        private readonly ILogger logger;
+        private readonly IDeltaSeverityProvider deltaSeverityProvider;
+        private readonly ILogger<ReportGrader> logger;
 
         #endregion Private Fields
 
@@ -17,10 +18,12 @@ namespace MetricsDelta
         public ReportGrader(
             IReportWriter reportBuilder,
             IGradeProvider gradeProvider,
-            ILogger logger)
+            IDeltaSeverityProvider deltaSeverityProvider,
+            ILogger<ReportGrader> logger)
         {
             this.reportWriter = reportBuilder;
             this.gradeProvider = gradeProvider;
+            this.deltaSeverityProvider = deltaSeverityProvider;
             this.logger = logger;
         }
 
@@ -38,7 +41,7 @@ namespace MetricsDelta
         public void VisitMetric(DeltaState deltaState, string metricName, int value, int delta)
         {
             var valueGrade = gradeProvider.GetValueGrade(metricName, value);
-            var deltaSeverity = gradeProvider.GetDeltaSeverity(metricName, delta);
+            var deltaSeverity = deltaSeverityProvider.GetDeltaSeverity(metricName, delta);
 
             reportWriter.WriteMetric(metricName, value, delta, valueGrade, deltaState, deltaSeverity);
 

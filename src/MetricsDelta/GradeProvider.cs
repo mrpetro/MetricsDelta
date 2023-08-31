@@ -4,51 +4,25 @@ using Microsoft.Extensions.Options;
 
 namespace MetricsDelta
 {
-    internal class GradeProvider : IGradeProvider
+    public class GradeProvider : IGradeProvider
     {
         #region Private Fields
 
-        private readonly MetricThresholdsCfg thresholdsCfg;
+        private readonly GradingThresholds thresholds;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public GradeProvider(IOptions<MetricDeltaCfg> options)
+        public GradeProvider(IOptions<GradingThresholds> options)
         {
-            thresholdsCfg = options.Value.Thresholds;
+            thresholds = options.Value;
         }
 
         #endregion Public Constructors
 
         #region Public Methods
 
-        public DeltaSeverity GetDeltaSeverity(string metricName, int delta)
-        {
-            switch (metricName)
-            {
-                case MetricDefinitions.MaintainabilityIndex:
-                    return GradeMaintainabilityIndexDelta(delta);
-
-                case MetricDefinitions.SourceLines:
-                    return GradeSourceLinesDelta(delta);
-
-                case MetricDefinitions.ClassCoupling:
-                    return GradeClassCouplingDelta(delta);
-
-                case MetricDefinitions.DepthOfInheritance:
-                    return GradeDepthOfInheritanceDelta(delta);
-
-                case MetricDefinitions.CyclomaticComplexity:
-                    return GradeCyclomaticComplexityDelta(delta);
-
-                case MetricDefinitions.ExecutableLines:
-                    return GradeExecutableLinesDelta(delta);
-
-                default:
-                    throw new NotImplementedException();
-            }
-        }
 
         public MetricGrade GetValueGrade(string metricName, int value)
         {
@@ -73,7 +47,7 @@ namespace MetricsDelta
                     return GradeExecutableLines(value);
 
                 default:
-                    throw new NotImplementedException();
+                    throw new NotImplementedException(metricName);
             }
         }
 
@@ -81,72 +55,32 @@ namespace MetricsDelta
 
         #region Private Methods
 
-        private DeltaSeverity GradeMaintainabilityIndexDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta > 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeCyclomaticComplexityDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeClassCouplingDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeDepthOfInheritanceDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeSourceLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private DeltaSeverity GradeExecutableLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
         private MetricGrade GradeMaintainabilityIndex(int value)
-            => GradeHigherTheBetter(value, thresholdsCfg.MaintainabilityIndex);
+            => GradeHigherTheBetter(value, thresholds.MaintainabilityIndex);
 
         private MetricGrade GradeCyclomaticComplexity(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.CyclomaticComplexity);
+            => GradeLowerTheBetter(value, thresholds.CyclomaticComplexity);
 
         private MetricGrade GradeClassCoupling(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.ClassCoupling);
+            => GradeLowerTheBetter(value, thresholds.ClassCoupling);
 
         private MetricGrade GradeDepthOfInheritance(int value)
-            => GradeLowerTheBetter(value, thresholdsCfg.DepthOfInheritance);
+            => GradeLowerTheBetter(value, thresholds.DepthOfInheritance);
 
         private MetricGrade GradeSourceLines(int value)
-        {
-            return MetricGrade.Good;
-        }
+            => GradeLowerTheBetter(value, thresholds.SourceLines);
 
         private MetricGrade GradeExecutableLines(int value)
+            => GradeLowerTheBetter(value, thresholds.ExecutableLines);
+
+        private MetricGrade GradeHigherTheBetter(int value, GradingThreshold cfg)
         {
-            return MetricGrade.Good;
+            if (value > cfg.Poor) return MetricGrade.Good;
+            else if (value <= cfg.Poor && value > cfg.Bad) return MetricGrade.Poor;
+            else return MetricGrade.Bad;
         }
 
-        private MetricGrade GradeHigherTheBetter(int value, MetricThresholdCfg cfg)
-        {
-            if (value < cfg.Poor) return MetricGrade.Bad;
-            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
-            else return MetricGrade.Good;
-        }
-
-        private MetricGrade GradeLowerTheBetter(int value, MetricThresholdCfg cfg)
+        private MetricGrade GradeLowerTheBetter(int value, GradingThreshold cfg)
         {
             if (value < cfg.Poor) return MetricGrade.Good;
             else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;

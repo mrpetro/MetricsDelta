@@ -4,7 +4,7 @@ using MetricsDelta.Model;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
-namespace CSTest
+namespace MetricsDelta
 {
     public class ReportComparer
     {
@@ -29,6 +29,7 @@ namespace CSTest
         {
             ArgumentNullException.ThrowIfNull(previous);
             ArgumentNullException.ThrowIfNull(current);
+
             cancellationToken.ThrowIfCancellationRequested();
 
             visitor.BeginVisitReport();
@@ -92,7 +93,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(target.Name, DeltaState.New);
 
-            await ProcessNewAssemblyAsync(target.Assembly, cancellationToken);
+            if(target.Assembly is not null)
+                await ProcessNewAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.New);
 
@@ -140,7 +142,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(currentTarget.Name, DeltaState.Existing);
 
-            await ProcessExistingAssemblyAsync(previousTarget.Assembly, currentTarget.Assembly, cancellationToken);
+            if(previousTarget.Assembly is not null && currentTarget.Assembly is not null)
+                await ProcessExistingAssemblyAsync(previousTarget.Assembly, currentTarget.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(currentTarget.Name, DeltaState.Existing);
 
@@ -153,7 +156,8 @@ namespace CSTest
 
             visitor.BeginVisitTarget(target.Name, DeltaState.Removed);
 
-            await ProcessRemovedAssemblyAsync(target.Assembly, cancellationToken);
+            if(target.Assembly is not null)
+                await ProcessRemovedAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.Removed);
 

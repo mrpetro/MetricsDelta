@@ -1,5 +1,4 @@
 ﻿// See https://aka.ms/new-console-template for more information
-using CSTest;
 using MetricsDelta;
 using MetricsDelta.Configuration;
 using MetricsDelta.Extensions;
@@ -17,56 +16,79 @@ using System.CommandLine.Parsing;
 using System.IO;
 using System.Xml;
 
-using var loggerFactory = LoggerFactory.Create(builder =>
-    builder.AddConsole()
-    );
+var rootClSettings = CLHelper.SetupCommandLine(args);
 
-var logger = loggerFactory.CreateLogger<Program>();
-
-var hostBuilder = new HostBuilder().ConfigureAppConfiguration((hostingContext, config) =>
-{
-    config.AddJsonFile("appsettings.json", optional: true);
-    config.AddEnvironmentVariables();
-});
-
-var host = hostBuilder.ConfigureServices(ser => ser.AddSingleton<ILogger>(logger))
-    .SetupCommandLine(args)
+var hostBuilder = new HostBuilder()
     .SetupMetricsReportGrader()
     .SetupGradeProvider()
-    .SetupXmlReportWriter()
+    .SetupDeltaSeverityProvider()
+    .SetupXmlReportWriter(rootClSettings.ReportFilePath)
     .SetupMetricsReportStripper()
+    .ConfigureLogging((hostingContext, loggingBuilder) =>
+    {
+        loggingBuilder.ClearProviders();
+        loggingBuilder.AddConsole();
+        loggingBuilder.AddConfiguration(hostingContext.Configuration.GetSection("Logging"));
+    });
+
+var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
+{
+    cfgBuilder.AddJsonFile("appsettings.json", optional: true);
+
+    if(File.Exists(rootClSettings.SettingsFilePath))
+        cfgBuilder.AddJsonFile(rootClSettings.SettingsFilePath, optional: true);
+
+    var cfgRoot = cfgBuilder.AddEnvironmentVariables()
     .Build();
 
-var runSettings = host.Services.GetRequiredService<IOptions<MetricDeltaCfg>>();
+    hostBuilder.ConfigureServices(sc =>
+    {
+        sc.Configure<GradingThresholds>(cfgRoot.GetSection("GradingThresholds"));
+    });
+}).Build();
 
-if (!XmlHelper.TryRestoreFromXml(
-    runSettings.Value.PreviousMetricsFilePath,
-    out XmlCodeMetricsReport? previousModel,
-    out string? errorMessage) || previousModel is null)
-{
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{runSettings.Value.PreviousMetricsFilePath}'. Reason: {errorMessage}");
-    return -1;
-}
-
-if (!XmlHelper.TryRestoreFromXml(
-    runSettings.Value.CurrentMetricsFilePath,
-    out XmlCodeMetricsReport? currentModel,
-    out errorMessage) || currentModel is null)
-{
-    logger.LogError($"Unable to restore CodeMetricsReport given at path '{runSettings.Value.CurrentMetricsFilePath}'. Reason: {errorMessage}");
-    return -1;
-}
-
-var outputReportFilePath = runSettings.Value.ReportFilePath;
-
-using var tokenSource = new CancellationTokenSource();
-Console.CancelKeyPress += delegate
-{
-    tokenSource.Cancel();
-};
+var logger = host.Services.GetRequiredService<ILogger<Program>>();
 
 try
 {
+    if (!rootClSettings.ValidateSettings(logger))
+        return -1;
+
+    XmlCodeMetricsReport? previousModel = null;
+    XmlCodeMetricsReport? currentModel = null;
+
+    if (rootClSettings.PreviousMetricsFilePath is not null && !XmlHelper.TryRestoreFromXml(
+        rootClSettings.PreviousMetricsFilePath,
+        out previousModel,
+        out string? errorMessage))
+    {
+        logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.PreviousMetricsFilePath}'. Reason: {errorMessage}");
+        return -1;
+    }
+
+    if (rootClSettings.CurrentMetricsFilePath is not null && !XmlHelper.TryRestoreFromXml(
+        rootClSettings.CurrentMetricsFilePath,
+        out currentModel,
+        out errorMessage))
+    {
+        logger.LogError($"Unable to restore CodeMetricsReport given at path '{rootClSettings.CurrentMetricsFilePath}'. Reason: {errorMessage}");
+        return -1;
+    }
+
+    if (previousModel is null)
+        throw new InvalidOperationException($"{nameof(previousModel)} is not expected to be null here.");
+
+    if (currentModel is null)
+        throw new InvalidOperationException($"{nameof(currentModel)} is not expected to be null here.");
+
+    var outputReportFilePath = rootClSettings.ReportFilePath;
+
+    using var tokenSource = new CancellationTokenSource();
+    Console.CancelKeyPress += delegate
+    {
+        tokenSource.Cancel();
+    };
+
     var reportVisitor = host.Services.GetRequiredService<IReportVisitor>();
     var deltaComparer = new ReportComparer(reportVisitor);
     deltaComparer.CompareAsync(previousModel, currentModel, tokenSource.Token).GetAwaiter().GetResult();

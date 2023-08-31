@@ -1,0 +1,2375 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<CodeMetricsReport Version="1.0">
+  <Targets>
+    <Target Name="MetricsDelta.csproj">
+      <Assembly Name="MetricsDelta, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="89" />
+          <Metric Name="CyclomaticComplexity" Value="234" />
+          <Metric Name="ClassCoupling" Value="67" />
+          <Metric Name="DepthOfInheritance" Value="1" />
+          <Metric Name="SourceLines" Value="1210" />
+          <Metric Name="ExecutableLines" Value="248" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="&lt;global namespace&gt;">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="100" />
+              <Metric Name="CyclomaticComplexity" Value="1" />
+              <Metric Name="ClassCoupling" Value="0" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="2" />
+              <Metric Name="ExecutableLines" Value="0" />
+            </Metrics>
+            <Types>
+              <NamedType Name="">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="2" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="CSTest">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="64" />
+              <Metric Name="CyclomaticComplexity" Value="19" />
+              <Metric Name="ClassCoupling" Value="11" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="171" />
+              <Metric Name="ExecutableLines" Value="64" />
+            </Metrics>
+            <Types>
+              <NamedType Name="ReportComparer">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="64" />
+                  <Metric Name="CyclomaticComplexity" Value="19" />
+                  <Metric Name="ClassCoupling" Value="11" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="168" />
+                  <Metric Name="ExecutableLines" Value="64" />
+                </Metrics>
+                <Members>
+                  <Field Name="IReportVisitor ReportComparer.visitor" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="ReportComparer.ReportComparer(IReportVisitor visitor)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="8" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.CompareAsync(ICodeMetricsReport previous, ICodeMetricsReport current, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="28">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="54" />
+                      <Metric Name="CyclomaticComplexity" Value="5" />
+                      <Metric Name="ClassCoupling" Value="8" />
+                      <Metric Name="SourceLines" Value="39" />
+                      <Metric Name="ExecutableLines" Value="20" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessNewAssemblyAsync(IAssembly assembly, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="68">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="66" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="8" />
+                      <Metric Name="SourceLines" Value="22" />
+                      <Metric Name="ExecutableLines" Value="7" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessNewTargetAsync(ITarget target, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="87">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="69" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="7" />
+                      <Metric Name="SourceLines" Value="15" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessExistingAssemblyAsync(IAssembly previousAssembly, IAssembly currentAssembly, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="103">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="55" />
+                      <Metric Name="CyclomaticComplexity" Value="5" />
+                      <Metric Name="ClassCoupling" Value="8" />
+                      <Metric Name="SourceLines" Value="34" />
+                      <Metric Name="ExecutableLines" Value="16" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessExistingTargetAsync(ITarget previousTarget, ITarget currentTarget, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="138">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="71" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="7" />
+                      <Metric Name="SourceLines" Value="12" />
+                      <Metric Name="ExecutableLines" Value="5" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessRemovedTargetAsync(ITarget target, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="151">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="72" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="7" />
+                      <Metric Name="SourceLines" Value="12" />
+                      <Metric Name="ExecutableLines" Value="5" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="Task ReportComparer.ProcessRemovedAssemblyAsync(IAssembly assembly, CancellationToken cancellationToken)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportComparer.cs" Line="164">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="76" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="6" />
+                      <Metric Name="SourceLines" Value="10" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="91" />
+              <Metric Name="CyclomaticComplexity" Value="140" />
+              <Metric Name="ClassCoupling" Value="22" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="614" />
+              <Metric Name="ExecutableLines" Value="90" />
+            </Metrics>
+            <Types>
+              <NamedType Name="DeltaSeverity">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="DeltaSeverity.Irrelevant" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="18">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="DeltaSeverity.Improved" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="DeltaSeverity.Declined" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="20">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+              <NamedType Name="DeltaState">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="DeltaState.Existing" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="DeltaState.New" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="DeltaState.Removed" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+              <NamedType Name="GradeProvider">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="83" />
+                  <Metric Name="CyclomaticComplexity" Value="49" />
+                  <Metric Name="ClassCoupling" Value="9" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="151" />
+                  <Metric Name="ExecutableLines" Value="25" />
+                </Metrics>
+                <Members>
+                  <Field Name="GradingThresholds GradeProvider.thresholds" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="GradeProvider.GradeProvider(IOptions&lt;GradingThresholds&gt; options)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="8" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GetDeltaSeverity(string metricName, int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="26">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="84" />
+                      <Metric Name="CyclomaticComplexity" Value="8" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="30" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GetValueGrade(string metricName, int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="53">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="84" />
+                      <Metric Name="CyclomaticComplexity" Value="8" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="26" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeMaintainabilityIndexDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="84">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="9" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeCyclomaticComplexityDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="90">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeClassCouplingDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="96">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeDepthOfInheritanceDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="102">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeSourceLinesDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="108">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="DeltaSeverity GradeProvider.GradeExecutableLinesDelta(int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="114">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="83" />
+                      <Metric Name="CyclomaticComplexity" Value="3" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeMaintainabilityIndex(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="120">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeCyclomaticComplexity(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="123">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeClassCoupling(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="126">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeDepthOfInheritance(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="129">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeSourceLines(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="132">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeExecutableLines(int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="137">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeHigherTheBetter(int value, GradingThreshold cfg)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="142">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="80" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade GradeProvider.GradeLowerTheBetter(int value, GradingThreshold cfg)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\GradeProvider.cs" Line="149">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="80" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IDeltaReporter">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="7" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="void IDeltaReporter.Verbose(string message)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IDeltaReporter.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IDeltaReporter.Info(string message)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IDeltaReporter.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IDeltaReporter.Warning(string message)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IDeltaReporter.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IDeltaReporter.Error(string message)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IDeltaReporter.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IGradeProvider">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="10" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="DeltaSeverity IGradeProvider.GetDeltaSeverity(string metricName, int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IGradeProvider.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="3" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="MetricGrade IGradeProvider.GetValueGrade(string metricName, int value)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IGradeProvider.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IMetricsReportStripper">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="4" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="void IMetricsReportStripper.Strip(string inputFilePath, string outputFilePath)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IMetricsReportStripper.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IReportVisitor">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="9" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="24" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="bool IReportVisitor.AnyDeltaDegradations" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="3" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="bool IReportVisitor.AnyDeltaDegradations.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="bool IReportVisitor.AnyBadMetricGrades" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="bool IReportVisitor.AnyBadMetricGrades.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Method Name="void IReportVisitor.VisitMetric(DeltaState deltaState, string metricName, int currentValue, int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.BeginVisitTarget(string targetName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.EndVisitTarget(string targetName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.BeginVisitAssembly(string assemblyName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.EndVisitAssembly(string assemblyName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.BeginVisitReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="21">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportVisitor.EndVisitReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportVisitor.cs" Line="23">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IReportWriter">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="7" />
+                  <Metric Name="ClassCoupling" Value="3" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="10" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="void IReportWriter.WriteMetric(string name, int value, int delta, MetricGrade valueGrade, DeltaState deltaState, DeltaSeverity deltaSeverity)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="32">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.BeginWriteTarget(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="33">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.EndWriteTarget(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="34">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.BeginWriteAssembly(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="35">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.EndWriteAssembly(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="36">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.BeginWriteReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="37">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void IReportWriter.EndWriteReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="38">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="MetricGrade">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="MetricGrade.Good" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="MetricGrade.Poor" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="26">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="MetricGrade.Bad" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\IReportWriter.cs" Line="27">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+              <NamedType Name="MetricsReportStripper">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="52" />
+                  <Metric Name="CyclomaticComplexity" Value="24" />
+                  <Metric Name="ClassCoupling" Value="7" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="108" />
+                  <Metric Name="ExecutableLines" Value="14" />
+                </Metrics>
+                <Members>
+                  <Method Name="void MetricsReportStripper.Strip(string inputFilePath, string outputFilePath)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\MetricsReportStripper.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="52" />
+                      <Metric Name="CyclomaticComplexity" Value="24" />
+                      <Metric Name="ClassCoupling" Value="6" />
+                      <Metric Name="SourceLines" Value="105" />
+                      <Metric Name="ExecutableLines" Value="14" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="ReportGrader">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="78" />
+                  <Metric Name="CyclomaticComplexity" Value="30" />
+                  <Metric Name="ClassCoupling" Value="10" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="172" />
+                  <Metric Name="ExecutableLines" Value="27" />
+                </Metrics>
+                <Members>
+                  <Field Name="IReportWriter ReportGrader.reportWriter" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="IGradeProvider ReportGrader.gradeProvider" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="ILogger ReportGrader.logger" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="ReportGrader.ReportGrader(IReportWriter reportBuilder, IGradeProvider gradeProvider, ILogger logger)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="79" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="13" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Property Name="bool ReportGrader.AnyDeltaDegradations" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="31">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="bool ReportGrader.AnyDeltaDegradations.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="31">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void ReportGrader.AnyDeltaDegradations.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="31">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="bool ReportGrader.AnyBadMetricGrades" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="32">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="bool ReportGrader.AnyBadMetricGrades.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="32">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void ReportGrader.AnyBadMetricGrades.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="32">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Method Name="void ReportGrader.VisitMetric(DeltaState deltaState, string metricName, int value, int delta)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="38">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="63" />
+                      <Metric Name="CyclomaticComplexity" Value="9" />
+                      <Metric Name="ClassCoupling" Value="9" />
+                      <Metric Name="SourceLines" Value="54" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.BeginVisitTarget(string targetName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="89">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="78" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.EndVisitTarget(string targetName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="97">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="78" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.BeginVisitAssembly(string assemblyName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="105">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="78" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.EndVisitAssembly(string assemblyName, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="113">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="78" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.BeginVisitReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="121">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="86" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void ReportGrader.EndVisitReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="128">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="86" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="string ReportGrader.GetStatePrefix(DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="139">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="87" />
+                      <Metric Name="CyclomaticComplexity" Value="5" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="21" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="string ReportGrader.GetSeveritySuffix(DeltaSeverity deltaSeverity)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\ReportGrader.cs" Line="157">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="87" />
+                      <Metric Name="CyclomaticComplexity" Value="5" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="17" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="XmlReportWriter">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="76" />
+                  <Metric Name="CyclomaticComplexity" Value="11" />
+                  <Metric Name="ClassCoupling" Value="5" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="83" />
+                  <Metric Name="ExecutableLines" Value="24" />
+                </Metrics>
+                <Members>
+                  <Field Name="XmlWriter XmlReportWriter.writer" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Method Name="XmlReportWriter.XmlReportWriter(XmlWriter writer)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="96" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="8" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.WriteMetric(string name, int value, int delta, MetricGrade valueGrade, DeltaState deltaState, DeltaSeverity deltaSeverity)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="24">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="63" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="25" />
+                      <Metric Name="ExecutableLines" Value="8" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.BeginWriteTarget(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="46">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="78" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.EndWriteTarget(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="53">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.BeginWriteAssembly(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="58">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="74" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="8" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.EndWriteAssembly(string name, DeltaState deltaState)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="67">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.BeginWriteReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="73">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="86" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void XmlReportWriter.EndWriteReport()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\XmlReportWriter.cs" Line="79">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="89" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Configuration">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="93" />
+              <Metric Name="CyclomaticComplexity" Value="21" />
+              <Metric Name="ClassCoupling" Value="1" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="69" />
+              <Metric Name="ExecutableLines" Value="8" />
+            </Metrics>
+            <Types>
+              <NamedType Name="GradingThreshold">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="95" />
+                  <Metric Name="CyclomaticComplexity" Value="5" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="19" />
+                  <Metric Name="ExecutableLines" Value="2" />
+                </Metrics>
+                <Members>
+                  <Method Name="GradingThreshold.GradingThreshold(int poor, int bad)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Property Name="int GradingThreshold.Bad" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="int GradingThreshold.Bad.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThreshold.Bad.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="int GradingThreshold.Poor" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="18">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="int GradingThreshold.Poor.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="18">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThreshold.Poor.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThreshold.cs" Line="18">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="GradingThresholds">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="85" />
+                  <Metric Name="CyclomaticComplexity" Value="12" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="14" />
+                  <Metric Name="ExecutableLines" Value="6" />
+                </Metrics>
+                <Members>
+                  <Property Name="GradingThreshold GradingThresholds.MaintainabilityIndex" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="3" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.MaintainabilityIndex.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.MaintainabilityIndex.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="GradingThreshold GradingThresholds.CyclomaticComplexity" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.CyclomaticComplexity.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.CyclomaticComplexity.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="8">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="GradingThreshold GradingThresholds.ClassCoupling" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.ClassCoupling.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.ClassCoupling.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="9">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="GradingThreshold GradingThresholds.DepthOfInheritance" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.DepthOfInheritance.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="10">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.DepthOfInheritance.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="10">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="GradingThreshold GradingThresholds.ExecutableLines" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.ExecutableLines.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="11">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.ExecutableLines.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="11">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="GradingThreshold GradingThresholds.SourceLines" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="GradingThreshold GradingThresholds.SourceLines.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="12">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void GradingThresholds.SourceLines.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\GradingThresholds.cs" Line="12">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="RootClSettings">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="29" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string RootClSettings.CurrentMetricsFilePath" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string RootClSettings.CurrentMetricsFilePath.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="15">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string RootClSettings.PreviousMetricsFilePath" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="20">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string RootClSettings.PreviousMetricsFilePath.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="20">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string RootClSettings.ReportFilePath" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string RootClSettings.ReportFilePath.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="25">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="string RootClSettings.SettingsFilePath" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="30">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string RootClSettings.SettingsFilePath.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Configuration\RootClSettings.cs" Line="30">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Extensions">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="82" />
+              <Metric Name="CyclomaticComplexity" Value="9" />
+              <Metric Name="ClassCoupling" Value="13" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="78" />
+              <Metric Name="ExecutableLines" Value="20" />
+            </Metrics>
+            <Types>
+              <NamedType Name="HostBuilderExtensions">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="83" />
+                  <Metric Name="CyclomaticComplexity" Value="5" />
+                  <Metric Name="ClassCoupling" Value="7" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="34" />
+                  <Metric Name="ExecutableLines" Value="10" />
+                </Metrics>
+                <Members>
+                  <Method Name="IHostBuilder HostBuilderExtensions.SetupLogger(IHostBuilder hostBuilder, ILogger logger)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\HostBuilderExtensions.cs" Line="24">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="84" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="6" />
+                      <Metric Name="SourceLines" Value="6" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IHostBuilder HostBuilderExtensions.SetupMetricsReportGrader(IHostBuilder hostBuilder)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\HostBuilderExtensions.cs" Line="29">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IHostBuilder HostBuilderExtensions.SetupMetricsReportStripper(IHostBuilder hostBuilder)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\HostBuilderExtensions.cs" Line="34">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IHostBuilder HostBuilderExtensions.SetupGradeProvider(IHostBuilder hostBuilder)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\HostBuilderExtensions.cs" Line="39">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="85" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IHostBuilder HostBuilderExtensions.SetupXmlReportWriter(IHostBuilder hostBuilder, string reportFilePath)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\HostBuilderExtensions.cs" Line="43">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="84" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="5" />
+                      <Metric Name="SourceLines" Value="4" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="ServiceCollectionExtensions">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="81" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="8" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="38" />
+                  <Metric Name="ExecutableLines" Value="10" />
+                </Metrics>
+                <Members>
+                  <Method Name="IServiceCollection ServiceCollectionExtensions.AddReportGrader(IServiceCollection services)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\ServiceCollectionExtensions.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="7" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IServiceCollection ServiceCollectionExtensions.AddMetricsReportStripper(IServiceCollection services)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\ServiceCollectionExtensions.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="88" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IServiceCollection ServiceCollectionExtensions.AddGradeProvider(IServiceCollection services)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\ServiceCollectionExtensions.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="IServiceCollection ServiceCollectionExtensions.AddXmlReportWriter(IServiceCollection services, string reportFilePath)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Extensions\ServiceCollectionExtensions.cs" Line="31">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="74" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="7" />
+                      <Metric Name="SourceLines" Value="13" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Helpers">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="76" />
+              <Metric Name="CyclomaticComplexity" Value="9" />
+              <Metric Name="ClassCoupling" Value="18" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="169" />
+              <Metric Name="ExecutableLines" Value="36" />
+            </Metrics>
+            <Types>
+              <NamedType Name="CLHelper">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="63" />
+                  <Metric Name="CyclomaticComplexity" Value="3" />
+                  <Metric Name="ClassCoupling" Value="14" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="72" />
+                  <Metric Name="ExecutableLines" Value="17" />
+                </Metrics>
+                <Members>
+                  <Method Name="RootClSettings CLHelper.SetupCommandLine(string[] args)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\CLHelper.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="56" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="8" />
+                      <Metric Name="SourceLines" Value="50" />
+                      <Metric Name="ExecutableLines" Value="14" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="void CLHelper.Configure(RootCommand rootCommand, string[] args, Action&lt;ParseResult&gt; resultProvider)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\CLHelper.cs" Line="69">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="79" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="8" />
+                      <Metric Name="SourceLines" Value="16" />
+                      <Metric Name="ExecutableLines" Value="3" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IOHelper">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="71" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="35" />
+                  <Metric Name="ExecutableLines" Value="6" />
+                </Metrics>
+                <Members>
+                  <Method Name="TResult IOHelper.RepeatTillResultOrThrow&lt;TResult&gt;(Func&lt;TResult&gt; func, int numberOfTries, int waitTimeMS, int tryCounter)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\IOHelper.cs" Line="25">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="71" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="21" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+              <NamedType Name="IOHelper.WriteStatus">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="8" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Field Name="WriteStatus.Started" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\IOHelper.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="WriteStatus.Finishing" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\IOHelper.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="WriteStatus.Finished" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\IOHelper.cs" Line="18">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+              <NamedType Name="XmlHelper">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="69" />
+                  <Metric Name="CyclomaticComplexity" Value="3" />
+                  <Metric Name="ClassCoupling" Value="4" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="53" />
+                  <Metric Name="ExecutableLines" Value="13" />
+                </Metrics>
+                <Members>
+                  <Method Name="T? XmlHelper.RestoreFromXml&lt;T&gt;(string filePath)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\XmlHelper.cs" Line="18">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="70" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="21" />
+                      <Metric Name="ExecutableLines" Value="6" />
+                    </Metrics>
+                  </Method>
+                  <Method Name="bool XmlHelper.TryRestoreFromXml&lt;T&gt;(string filePath, out T? restoredObj, out string? errorMessage)" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Helpers\XmlHelper.cs" Line="40">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="69" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="23" />
+                      <Metric Name="ExecutableLines" Value="7" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Model">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="99" />
+              <Metric Name="CyclomaticComplexity" Value="9" />
+              <Metric Name="ClassCoupling" Value="4" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="50" />
+              <Metric Name="ExecutableLines" Value="2" />
+            </Metrics>
+            <Types>
+              <NamedType Name="IAssembly">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? IAssembly.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IAssembly.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? IAssembly.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IAssembly.cs" Line="12">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IEnumerable&lt;IMetric&gt; IAssembly.Metrics" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IAssembly.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IEnumerable&lt;IMetric&gt; IAssembly.Metrics.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IAssembly.cs" Line="14">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="ICodeMetricsReport">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? ICodeMetricsReport.Version" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ICodeMetricsReport.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? ICodeMetricsReport.Version.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ICodeMetricsReport.cs" Line="12">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IEnumerable&lt;ITarget&gt; ICodeMetricsReport.Targets" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ICodeMetricsReport.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IEnumerable&lt;ITarget&gt; ICodeMetricsReport.Targets.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ICodeMetricsReport.cs" Line="14">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="IMetric">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? IMetric.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IMetric.cs" Line="5">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? IMetric.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IMetric.cs" Line="5">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="int IMetric.Value" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IMetric.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="int IMetric.Value.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\IMetric.cs" Line="7">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="ITarget">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="2" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="0" />
+                  <Metric Name="SourceLines" Value="6" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? ITarget.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ITarget.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? ITarget.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ITarget.cs" Line="12">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IAssembly? ITarget.Assembly" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ITarget.cs" Line="14">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IAssembly? ITarget.Assembly.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\ITarget.cs" Line="14">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="MetricDefinitions">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="93" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="0" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="13" />
+                  <Metric Name="ExecutableLines" Value="2" />
+                </Metrics>
+                <Members>
+                  <Field Name="string MetricDefinitions.MaintainabilityIndex" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="7">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="string MetricDefinitions.CyclomaticComplexity" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="8">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="string MetricDefinitions.ClassCoupling" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="9">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="string MetricDefinitions.DepthOfInheritance" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="10">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="string MetricDefinitions.SourceLines" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="11">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                  <Field Name="string MetricDefinitions.ExecutableLines" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\MetricDefinitions.cs" Line="12">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="93" />
+                      <Metric Name="CyclomaticComplexity" Value="0" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="1" />
+                    </Metrics>
+                  </Field>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Model.Xml">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="85" />
+              <Metric Name="CyclomaticComplexity" Value="26" />
+              <Metric Name="ClassCoupling" Value="17" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="57" />
+              <Metric Name="ExecutableLines" Value="28" />
+            </Metrics>
+            <Types>
+              <NamedType Name="XmlAssembly">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="81" />
+                  <Metric Name="CyclomaticComplexity" Value="8" />
+                  <Metric Name="ClassCoupling" Value="10" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="12" />
+                  <Metric Name="ExecutableLines" Value="8" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? XmlAssembly.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? XmlAssembly.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlAssembly.Name.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="XmlMetric[]? XmlAssembly.XmlMetrics" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="17">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="3" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="XmlMetric[]? XmlAssembly.XmlMetrics.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlAssembly.XmlMetrics.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="17">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IEnumerable&lt;IMetric&gt; XmlAssembly.Metrics" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="20">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IEnumerable&lt;IMetric&gt; XmlAssembly.Metrics.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlAssembly.cs" Line="20">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="92" />
+                          <Metric Name="CyclomaticComplexity" Value="2" />
+                          <Metric Name="ClassCoupling" Value="3" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="1" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="XmlCodeMetricsReport">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="79" />
+                  <Metric Name="CyclomaticComplexity" Value="8" />
+                  <Metric Name="ClassCoupling" Value="12" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="14" />
+                  <Metric Name="ExecutableLines" Value="10" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? XmlCodeMetricsReport.Version" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="15">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? XmlCodeMetricsReport.Version.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="15">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlCodeMetricsReport.Version.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="15">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="XmlTarget[]? XmlCodeMetricsReport.XmlTargets" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="3" />
+                      <Metric Name="ExecutableLines" Value="4" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="XmlTarget[]? XmlCodeMetricsReport.XmlTargets.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="19">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlCodeMetricsReport.XmlTargets.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="19">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IEnumerable&lt;ITarget&gt; XmlCodeMetricsReport.Targets" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="22">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="92" />
+                      <Metric Name="CyclomaticComplexity" Value="4" />
+                      <Metric Name="ClassCoupling" Value="4" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IEnumerable&lt;ITarget&gt; XmlCodeMetricsReport.Targets.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlCodeMetricsReport.cs" Line="22">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="92" />
+                          <Metric Name="CyclomaticComplexity" Value="2" />
+                          <Metric Name="ClassCoupling" Value="3" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="1" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="XmlMetric">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="91" />
+                  <Metric Name="CyclomaticComplexity" Value="4" />
+                  <Metric Name="ClassCoupling" Value="2" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="8" />
+                  <Metric Name="ExecutableLines" Value="4" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? XmlMetric.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? XmlMetric.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlMetric.Name.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="int XmlMetric.Value" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="int XmlMetric.Value.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="16">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlMetric.Value.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlMetric.cs" Line="16">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+              <NamedType Name="XmlTarget">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="89" />
+                  <Metric Name="CyclomaticComplexity" Value="6" />
+                  <Metric Name="ClassCoupling" Value="6" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="11" />
+                  <Metric Name="ExecutableLines" Value="6" />
+                </Metrics>
+                <Members>
+                  <Property Name="string? XmlTarget.Name" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="13">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="string? XmlTarget.Name.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlTarget.Name.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="13">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="0" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="XmlAssembly? XmlTarget.XmlAssembly" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="16">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="2" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="XmlAssembly? XmlTarget.XmlAssembly.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="16">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                      <Method Name="void XmlTarget.XmlAssembly.set" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="16">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="1" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="0" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                  <Property Name="IAssembly? XmlTarget.Assembly" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="19">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="2" />
+                      <Metric Name="ClassCoupling" Value="3" />
+                      <Metric Name="SourceLines" Value="2" />
+                      <Metric Name="ExecutableLines" Value="2" />
+                    </Metrics>
+                    <Accessors>
+                      <Method Name="IAssembly? XmlTarget.Assembly.get" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta\Model\Xml\XmlTarget.cs" Line="19">
+                        <Metrics>
+                          <Metric Name="MaintainabilityIndex" Value="100" />
+                          <Metric Name="CyclomaticComplexity" Value="1" />
+                          <Metric Name="ClassCoupling" Value="2" />
+                          <Metric Name="SourceLines" Value="1" />
+                          <Metric Name="ExecutableLines" Value="1" />
+                        </Metrics>
+                      </Method>
+                    </Accessors>
+                  </Property>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+    <Target Name="MetricsDelta.Test.csproj">
+      <Assembly Name="MetricsDelta.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="100" />
+          <Metric Name="CyclomaticComplexity" Value="2" />
+          <Metric Name="ClassCoupling" Value="2" />
+          <Metric Name="DepthOfInheritance" Value="1" />
+          <Metric Name="SourceLines" Value="11" />
+          <Metric Name="ExecutableLines" Value="0" />
+        </Metrics>
+        <Namespaces>
+          <Namespace Name="&lt;global namespace&gt;">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="100" />
+              <Metric Name="CyclomaticComplexity" Value="1" />
+              <Metric Name="ClassCoupling" Value="1" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="1" />
+              <Metric Name="ExecutableLines" Value="0" />
+            </Metrics>
+            <Types>
+              <NamedType Name="AutoGeneratedProgram">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="1" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="void AutoGeneratedProgram.Main(string[] args)" File="C:\Users\piotr\.nuget\packages\microsoft.net.test.sdk\17.5.0\build\netcoreapp3.1\Microsoft.NET.Test.Sdk.Program.cs" Line="4">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="0" />
+                      <Metric Name="SourceLines" Value="1" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+          <Namespace Name="MetricsDelta.Test">
+            <Metrics>
+              <Metric Name="MaintainabilityIndex" Value="100" />
+              <Metric Name="CyclomaticComplexity" Value="1" />
+              <Metric Name="ClassCoupling" Value="1" />
+              <Metric Name="DepthOfInheritance" Value="1" />
+              <Metric Name="SourceLines" Value="10" />
+              <Metric Name="ExecutableLines" Value="0" />
+            </Metrics>
+            <Types>
+              <NamedType Name="UnitTest1">
+                <Metrics>
+                  <Metric Name="MaintainabilityIndex" Value="100" />
+                  <Metric Name="CyclomaticComplexity" Value="1" />
+                  <Metric Name="ClassCoupling" Value="1" />
+                  <Metric Name="DepthOfInheritance" Value="1" />
+                  <Metric Name="SourceLines" Value="8" />
+                  <Metric Name="ExecutableLines" Value="0" />
+                </Metrics>
+                <Members>
+                  <Method Name="void UnitTest1.Test1()" File="D:\Projects\Programing\GIT\MetricsDelta\src\MetricsDelta.Test\UnitTest1.cs" Line="6">
+                    <Metrics>
+                      <Metric Name="MaintainabilityIndex" Value="100" />
+                      <Metric Name="CyclomaticComplexity" Value="1" />
+                      <Metric Name="ClassCoupling" Value="1" />
+                      <Metric Name="SourceLines" Value="5" />
+                      <Metric Name="ExecutableLines" Value="0" />
+                    </Metrics>
+                  </Method>
+                </Members>
+              </NamedType>
+            </Types>
+          </Namespace>
+        </Namespaces>
+      </Assembly>
+    </Target>
+  </Targets>
+</CodeMetricsReport>
