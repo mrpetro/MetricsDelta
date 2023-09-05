@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Xml.Serialization;
+﻿using System.Xml.Serialization;
 
 namespace MetricsDelta.Model.Xml
 {
     public class XmlTarget : ITarget
     {
+        #region Public Properties
+
         [XmlAttribute("Name")]
         public string? Name { get; set; }
 
@@ -17,5 +14,16 @@ namespace MetricsDelta.Model.Xml
 
         [XmlIgnore]
         public IAssembly? Assembly => XmlAssembly;
+
+        #endregion Public Properties
+
+        #region Public Methods
+
+        public override string ToString()
+        {
+            return $"Target [{Name}]";
+        }
+
+        #endregion Public Methods
     }
 }

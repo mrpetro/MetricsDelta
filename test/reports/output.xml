@@ -8,7 +8,7 @@
           <Metric Name="CyclomaticComplexity" Value="234" ValueGrade="Poor" />
           <Metric Name="ClassCoupling" Value="67" ValueGrade="Poor" />
           <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
-          <Metric Name="SourceLines" Value="1210" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="1210" ValueGrade="Poor" />
           <Metric Name="ExecutableLines" Value="248" ValueGrade="Good" />
         </Metrics>
       </Assembly>

@@ -7,10 +7,8 @@ using System.Xml.Serialization;
 
 namespace MetricsDelta.Model
 {
-    public interface ITarget
+    public interface ITarget : INamedElement
     {
-        string? Name { get; }
-
         IAssembly? Assembly { get; }
     }
 }

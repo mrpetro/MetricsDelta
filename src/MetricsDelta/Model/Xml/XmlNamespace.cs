@@ -2,19 +2,19 @@
 
 namespace MetricsDelta.Model.Xml
 {
-    public class XmlAssembly : XmlMetricsOwner, IAssembly
+    public class XmlNamespace : XmlMetricsOwner, INamespace
     {
         #region Public Properties
 
         [XmlAttribute("Name")]
         public string? Name { get; set; }
 
-        [XmlArray("Namespaces")]
-        [XmlArrayItem("Namespace", typeof(XmlNamespace))]
-        public XmlNamespace[]? XmlNamespaces { get; set; }
+        [XmlArray("Types")]
+        [XmlArrayItem("NamedType", typeof(XmlNamedType))]
+        public XmlNamedType[]? XmlTypes { get; set; }
 
         [XmlIgnore]
-        public IEnumerable<INamespace> Namespaces => XmlNamespaces is null ? Enumerable.Empty<INamespace>() : XmlNamespaces;
+        public IEnumerable<INamedType> Types => XmlTypes is null ? Enumerable.Empty<INamedType>() : XmlTypes;
 
         #endregion Public Properties
 
@@ -22,7 +22,7 @@ namespace MetricsDelta.Model.Xml
 
         public override string ToString()
         {
-            return $"Assembly [{Name}]";
+            return $"Namespace [{Name}]";
         }
 
         #endregion Public Methods
