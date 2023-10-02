@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using MetricsDelta.Model;
+using Microsoft.Extensions.Logging;
 
 namespace MetricsDelta
 {
@@ -6,175 +7,76 @@ namespace MetricsDelta
     {
         #region Private Fields
 
-        private readonly IReportWriter reportWriter;
         private readonly IGradeProvider gradeProvider;
-        private readonly IDeltaSeverityProvider deltaSeverityProvider;
         private readonly ILogger<ReportGrader> logger;
+
+        private string? currentLevel;
 
         #endregion Private Fields
 
         #region Public Constructors
 
         public ReportGrader(
-            IReportWriter reportBuilder,
-            IGradeProvider gradeProvider,
-            IDeltaSeverityProvider deltaSeverityProvider,
+                    IGradeProvider gradeProvider,
             ILogger<ReportGrader> logger)
         {
-            this.reportWriter = reportBuilder;
             this.gradeProvider = gradeProvider;
-            this.deltaSeverityProvider = deltaSeverityProvider;
             this.logger = logger;
         }
 
         #endregion Public Constructors
 
-        #region Public Properties
-
-        public bool AnyDeltaDegradations { get; private set; }
-        public bool AnyBadMetricGrades { get; private set; }
-
-        #endregion Public Properties
-
         #region Public Methods
 
-        public void VisitMetric(DeltaState deltaState, string metricName, int value, int delta)
+        public void VisitMetric(IMetric metric)
         {
-            var valueGrade = gradeProvider.GetValueGrade(metricName, value);
-            var deltaSeverity = deltaSeverityProvider.GetDeltaSeverity(metricName, delta);
+            if (metric.Name is null)
+                return;
 
-            reportWriter.WriteMetric(metricName, value, delta, valueGrade, deltaState, deltaSeverity);
-
-            switch (valueGrade)
-            {
-                case MetricGrade.Good:
-                    logger.LogTrace($"Good metric '{metricName}' = {value}");
-                    break;
-
-                case MetricGrade.Poor:
-                    logger.LogWarning($"Poor metric '{metricName}' = {value}");
-                    break;
-
-                case MetricGrade.Bad:
-
-                    AnyBadMetricGrades = true;
-                    logger.LogError($"Bad metric '{metricName}' = {value}");
-                    break;
-
-                default:
-                    throw new InvalidOperationException($"Unknown ValueGrade '{valueGrade}'.");
-            }
-
-            var deltaMessage = $"{GetStatePrefix(deltaState)} {metricName}: {value} ({delta}) {GetSeveritySuffix(deltaSeverity)}";
-
-            switch (deltaSeverity)
-            {
-                case DeltaSeverity.Irrelevant:
-                    logger.LogTrace(deltaMessage);
-                    break;
-
-                case DeltaSeverity.Improved:
-                    logger.LogInformation(deltaMessage);
-                    break;
-
-                case DeltaSeverity.Declined:
-                    logger.LogError(deltaMessage);
-
-                    AnyDeltaDegradations = true;
-
-                    break;
-
-                default:
-                    throw new InvalidOperationException($"Unknown DeltaSeverity '{deltaSeverity}'.");
-            }
+            var valueGrade = gradeProvider.GetValueGrade(metric.Name, metric.Value);
+            metric.Grade = valueGrade.ToString();
         }
 
-        public void BeginVisitTarget(string targetName, DeltaState deltaState)
+        public void BeginVisitTarget(ITarget target)
         {
-            var message = $"Project {GetStatePrefix(deltaState)} {targetName} started.";
-            logger.LogTrace(message);
-
-            reportWriter.BeginWriteTarget(targetName, deltaState);
-        }
-
-        public void EndVisitTarget(string targetName, DeltaState deltaState)
-        {
-            reportWriter.EndWriteTarget(targetName, deltaState);
-
-            var message = $"Project {GetStatePrefix(deltaState)} {targetName} finished.";
+            currentLevel = "Target";
+            var message = $"Grading project '{target.Name}' started.";
             logger.LogTrace(message);
         }
 
-        public void BeginVisitAssembly(string assemblyName, DeltaState deltaState)
+        public void EndVisitTarget(ITarget target)
         {
-            var message = $"Assembly {GetStatePrefix(deltaState)} {assemblyName} started.";
+            var message = $"Grading project '{target.Name}' finished.";
             logger.LogTrace(message);
-
-            reportWriter.BeginWriteAssembly(assemblyName, deltaState);
+            currentLevel = null;
         }
 
-        public void EndVisitAssembly(string assemblyName, DeltaState deltaState)
+        public void BeginVisitAssembly(IAssembly assembly)
         {
-            reportWriter.EndWriteAssembly(assemblyName, deltaState);
-
-            var message = $"Assembly {GetStatePrefix(deltaState)} {assemblyName} finished.";
+            currentLevel = "Assembly";
+            var message = $"Grading assembly '{assembly.Name}' started.";
             logger.LogTrace(message);
         }
 
-        public void BeginVisitReport()
+        public void EndVisitAssembly(IAssembly assembly)
         {
-            logger.LogTrace("Report started.");
-
-            reportWriter.BeginWriteReport();
+            var message = $"Grading assembly '{assembly.Name}' finished.";
+            logger.LogTrace(message);
+            currentLevel = null;
         }
 
-        public void EndVisitReport()
+        public void BeginVisitReport(ICodeMetricsReport report)
         {
-            reportWriter.EndWriteReport();
+            currentLevel = "Report";
+            logger.LogTrace("Grading report started.");
+        }
 
-            logger.LogTrace("Report finished.");
+        public void EndVisitReport(ICodeMetricsReport report)
+        {
+            logger.LogTrace("Grading report finished.");
+            currentLevel = null;
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        private string GetStatePrefix(DeltaState deltaState)
-        {
-            switch (deltaState)
-            {
-                case DeltaState.Existing:
-                    return string.Empty;
-
-                case DeltaState.New:
-                    return "(NEW) ";
-
-                case DeltaState.Removed:
-                    return "(REMOVED) ";
-
-                default:
-                    throw new InvalidOperationException($"Unknown DeltaState '{deltaState}'.");
-            }
-        }
-
-        private string GetSeveritySuffix(DeltaSeverity deltaSeverity)
-        {
-            switch (deltaSeverity)
-            {
-                case DeltaSeverity.Irrelevant:
-                    return string.Empty;
-
-                case DeltaSeverity.Improved:
-                    return "(IMPROVED) ";
-
-                case DeltaSeverity.Declined:
-                    return "(DECLINED) ";
-
-                default:
-                    throw new InvalidOperationException($"Unknown DeltaSeverity '{deltaSeverity}'.");
-            }
-        }
-
-        #endregion Private Methods
     }
 }

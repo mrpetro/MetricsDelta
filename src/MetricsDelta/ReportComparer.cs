@@ -10,13 +10,13 @@ namespace MetricsDelta
     {
         #region Private Fields
 
-        private readonly IReportVisitor visitor;
+        private readonly IDeltaVisitor visitor;
 
         #endregion
 
         #region Public Constructors
 
-        public ReportComparer(IReportVisitor visitor)
+        public ReportComparer(IDeltaVisitor visitor)
         {
             this.visitor = visitor;
         }

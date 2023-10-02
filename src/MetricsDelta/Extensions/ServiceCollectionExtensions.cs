@@ -1,7 +1,5 @@
-﻿using MetricsDelta.Configuration;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Options;
 using System.Xml;
 
 namespace MetricsDelta.Extensions
@@ -10,9 +8,21 @@ namespace MetricsDelta.Extensions
     {
         #region Public Methods
 
-        public static IServiceCollection AddReportGrader(this IServiceCollection services)
+        public static IServiceCollection AddReportWalker(this IServiceCollection services)
         {
-            services.TryAddSingleton<IReportVisitor, ReportGrader>();
+            services.TryAddSingleton<IReportWalker, ReportWalker>();
+            return services;
+        }
+
+        public static IServiceCollection AddReportGraderFactory(this IServiceCollection services)
+        {
+            services.TryAddSingleton<IReportVisitorFactory, ReportVisitorFactory>();
+            return services;
+        }
+
+        public static IServiceCollection AddDeltaGrader(this IServiceCollection services)
+        {
+            services.TryAddSingleton<IDeltaVisitor, DeltaGrader>();
             return services;
         }
 

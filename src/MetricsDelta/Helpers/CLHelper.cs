@@ -1,11 +1,5 @@
-﻿using MetricsDelta.Configuration;
-using System;
-using System.Collections.Generic;
+﻿using System.CommandLine;
 using System.CommandLine.Parsing;
-using System.CommandLine;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MetricsDelta.Helpers
 {
@@ -13,8 +7,47 @@ namespace MetricsDelta.Helpers
     {
         #region Public Methods
 
-        public static RootClSettings SetupCommandLine(string[] args)
+        public static Command SetupGradeReportCommand(string[] args, Func<CLGradeArgments, Task<int>> func)
         {
+            var command = new Command("grade", "Grade given code metrics report");
+
+            var metricsFilePathOption = new Option<string>
+                (name: "--metricsFilePath",
+                description: "Path to the code metrics report file.");
+
+            var reportFilePathOption = new Option<string>
+                (name: "--reportFilePath",
+                description: "Path to the output report file.",
+                getDefaultValue: () => "report.xml");
+
+            var settingsFilePathOption = new Option<string>
+                (name: "--settingsFilePath",
+                description: "Path to JSON file with settings.",
+                getDefaultValue: () => "appsettings.json");
+
+            command.AddOption(metricsFilePathOption);
+            command.AddOption(reportFilePathOption);
+            command.AddOption(settingsFilePathOption);
+
+            Configure(command, args, (result) =>
+            {
+                var clGradeArgs = new CLGradeArgments()
+                {
+                    MetricsFilePath = result.GetValueForOption(metricsFilePathOption),
+                    ReportFilePath = result.GetValueForOption(reportFilePathOption),
+                    SettingsFilePath = result.GetValueForOption(settingsFilePathOption)
+                };
+
+                var res = func.Invoke(clGradeArgs);
+            });
+
+            return command;
+        }
+
+        public static Command SetupDifferenceReportCommand(string[] args)
+        {
+            var command = new Command("compare", "Compare two given code metrics reports");
+
             var previousMetricsFilePath = new Option<string>
                 (name: "--previousMetricsFilePath",
                 description: "Path to the previous code metrics report file.");
@@ -33,50 +66,48 @@ namespace MetricsDelta.Helpers
                 description: "Path to JSON file with settings.",
                 getDefaultValue: () => "appsettings.json");
 
-            var rootCommand = new RootCommand
-            {
-                previousMetricsFilePath,
-                currentMetricsFilePath,
-                reportFilePath,
-                settingsFilePath
-            };
+            command.AddOption(previousMetricsFilePath);
+            command.AddOption(currentMetricsFilePath);
+            command.AddOption(reportFilePath);
+            command.AddOption(settingsFilePath);
 
-            var cfg = new RootClSettings();
-
-            Configure(rootCommand, args, (result) =>
-            {
-                cfg = new RootClSettings()
-                {
-                    PreviousMetricsFilePath = result.GetValueForOption(previousMetricsFilePath),
-                    CurrentMetricsFilePath = result.GetValueForOption(currentMetricsFilePath),
-                    ReportFilePath = result.GetValueForOption(reportFilePath),
-                    SettingsFilePath = result.GetValueForOption(settingsFilePath)
-                };
-            });
-
-            if (cfg is null)
-                throw new InvalidOperationException("RootCommand handler not called.");
-
-            return cfg;
+            return command;
         }
 
-        #endregion Public Methods
-
-        #region Private Methods
-
-        private static void Configure(
-            RootCommand rootCommand,
+        public static void Configure(
+            Command command,
             string[] args,
             Action<ParseResult> resultProvider)
         {
-            rootCommand.SetHandler((handle) =>
+            command.SetHandler((handle) =>
             {
                 resultProvider.Invoke(handle.ParseResult);
             });
-
-            rootCommand.Invoke(args);
         }
 
-        #endregion Private Methods
+        #endregion Public Methods
+    }
+
+    public class CLGradeArgments
+    {
+        #region Public Properties
+
+        public string MetricsFilePath { get; init; }
+        public string ReportFilePath { get; init; }
+        public string SettingsFilePath { get; init; }
+
+        #endregion Public Properties
+    }
+
+    public class CLCompareArgments
+    {
+        #region Public Properties
+
+        public string PreviousMetricsFilePath { get; init; }
+        public string CurrentMetricsFilePath { get; init; }
+        public string ReportFilePath { get; init; }
+        public string SettingsFilePath { get; init; }
+
+        #endregion Public Properties
     }
 }

@@ -2,7 +2,12 @@
   "profiles": {
     "MetricsDelta": {
       "commandName": "Project",
-      "commandLineArgs": "--previousMetricsFilePath \"D:\\Projects\\Programing\\GIT\\MetricsDelta\\test\\reports\\previous.xml\" --currentMetricsFilePath \"reports\\current.xml\" --reportFilePath \"reports\\output.xml\" --settingsFilePath \"settings.json\"\r\n\r\n",
+      "commandLineArgs": "compare --previousMetricsFilePath \"D:\\Projects\\Programing\\GIT\\MetricsDelta\\test\\reports\\previous.xml\" --currentMetricsFilePath \"reports\\current.xml\" --reportFilePath \"reports\\output.xml\" --settingsFilePath \"settings.json\"\r\n\r\n",
+      "workingDirectory": "$(SolutionDir)\\..\\test\\"
+    },
+    "MetricsGrade": {
+      "commandName": "Project",
+      "commandLineArgs": "grade --metricsFilePath \"reports\\current.xml\" --reportFilePath \"reports\\output.xml\" --settingsFilePath \"settings.json\"\r\n\r\n",
       "workingDirectory": "$(SolutionDir)\\..\\test\\"
     }
   }

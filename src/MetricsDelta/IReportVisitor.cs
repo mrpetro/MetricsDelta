@@ -1,26 +1,24 @@
-﻿namespace MetricsDelta
+﻿using MetricsDelta.Model;
+
+namespace MetricsDelta
 {
     public interface IReportVisitor
     {
         #region Public Methods
 
-        bool AnyDeltaDegradations { get; }
+        void VisitMetric(IMetric metric);
 
-        bool AnyBadMetricGrades { get; }
+        void BeginVisitTarget(ITarget target);
 
-        void VisitMetric(DeltaState deltaState, string metricName, int currentValue, int delta);
+        void EndVisitTarget(ITarget target);
 
-        void BeginVisitTarget(string targetName, DeltaState deltaState);
+        void BeginVisitAssembly(IAssembly assembly);
 
-        void EndVisitTarget(string targetName, DeltaState deltaState);
+        void EndVisitAssembly(IAssembly assembly);
 
-        void BeginVisitAssembly(string assemblyName, DeltaState deltaState);
+        void BeginVisitReport(ICodeMetricsReport report);
 
-        void EndVisitAssembly(string assemblyName, DeltaState deltaState);
-
-        void BeginVisitReport();
-
-        void EndVisitReport();
+        void EndVisitReport(ICodeMetricsReport report);
 
         #endregion Public Methods
     }

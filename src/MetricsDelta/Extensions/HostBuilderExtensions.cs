@@ -21,9 +21,19 @@ namespace MetricsDelta.Extensions
     {
         #region Public Methods
 
-        public static IHostBuilder SetupMetricsReportGrader(this IHostBuilder hostBuilder)
+        public static IHostBuilder SetupReportWalker(this IHostBuilder hostBuilder)
         {
-            return hostBuilder.ConfigureServices((hostContext, services) => services.AddReportGrader());
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddReportWalker());
+        }
+
+        public static IHostBuilder SetupReportGraderFactory(this IHostBuilder hostBuilder)
+        {
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddReportGraderFactory());
+        }
+
+        public static IHostBuilder SetupDeltaGrader(this IHostBuilder hostBuilder)
+        {
+            return hostBuilder.ConfigureServices((hostContext, services) => services.AddDeltaGrader());
         }
 
         public static IHostBuilder SetupMetricsReportStripper(this IHostBuilder hostBuilder)
