@@ -8,13 +8,13 @@ namespace MetricsDelta
     {
         #region Private Fields
 
-        private readonly GradingThresholds thresholds;
+        private readonly DeltaSeverityThresholds thresholds;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public DeltaSeverityProvider(IOptions<GradingThresholds> options)
+        public DeltaSeverityProvider(IOptions<DeltaSeverityThresholds> options)
         {
             thresholds = options.Value;
         }
@@ -54,76 +54,64 @@ namespace MetricsDelta
 
         #region Private Methods
 
-        private DeltaSeverity GradeMaintainabilityIndexDelta(int delta)
+        private DeltaSeverity GradeMaintainabilityIndexDelta(int delta) =>
+            GradeHigherTheBetter(delta, thresholds.MaintainabilityIndex);
+
+        private DeltaSeverity GradeCyclomaticComplexityDelta(int delta) =>
+            GradeLowerTheBetter(delta, thresholds.CyclomaticComplexity);
+
+        private DeltaSeverity GradeClassCouplingDelta(int delta) =>
+            GradeLowerTheBetter(delta, thresholds.ClassCoupling);
+
+        private DeltaSeverity GradeDepthOfInheritanceDelta(int delta) =>
+            GradeLowerTheBetter(delta, thresholds.DepthOfInheritance);
+
+        private DeltaSeverity GradeSourceLinesDelta(int delta) =>
+            GradeLowerTheBetter(delta, thresholds.SourceLines);
+
+        private DeltaSeverity GradeExecutableLinesDelta(int delta) =>
+            GradeLowerTheBetter(delta, thresholds.ExecutableLines);
+
+        private DeltaSeverity GradeLowerTheBetter(int value, Threshold cfg)
         {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta > 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
+            switch (value)
+            {
+                case int n when (n < 0):
+                    return DeltaSeverity.Improved;
+
+                case int n when (n >= 0 && n < cfg.Poor):
+                    return DeltaSeverity.Irrelevant;
+
+                case int n when (n >= cfg.Poor && n < cfg.Bad):
+                    return DeltaSeverity.Declined;
+
+                case int n when (n >= cfg.Bad):
+                    return DeltaSeverity.Degraded;
+
+                default:
+                    return DeltaSeverity.Irrelevant;
+            }    
         }
 
-        private DeltaSeverity GradeCyclomaticComplexityDelta(int delta)
+        private DeltaSeverity GradeHigherTheBetter(int value, Threshold cfg)
         {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
+            switch (value)
+            {
+                case int n when (n > 0):
+                    return DeltaSeverity.Improved;
 
-        private DeltaSeverity GradeClassCouplingDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
+                case int n when (n > cfg.Poor && n <= 0 ):
+                    return DeltaSeverity.Irrelevant;
 
-        private DeltaSeverity GradeDepthOfInheritanceDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
+                case int n when (n > cfg.Bad && n <= cfg.Poor):
+                    return DeltaSeverity.Declined;
 
-        private DeltaSeverity GradeSourceLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
+                case int n when (n <= cfg.Bad):
+                    return DeltaSeverity.Degraded;
 
-        private DeltaSeverity GradeExecutableLinesDelta(int delta)
-        {
-            if (delta == 0) return DeltaSeverity.Irrelevant;
-            return delta < 0 ? DeltaSeverity.Improved : DeltaSeverity.Declined;
-        }
-
-        private MetricGrade GradeMaintainabilityIndex(int value)
-            => GradeHigherTheBetter(value, thresholds.MaintainabilityIndex);
-
-        private MetricGrade GradeCyclomaticComplexity(int value)
-            => GradeLowerTheBetter(value, thresholds.CyclomaticComplexity);
-
-        private MetricGrade GradeClassCoupling(int value)
-            => GradeLowerTheBetter(value, thresholds.ClassCoupling);
-
-        private MetricGrade GradeDepthOfInheritance(int value)
-            => GradeLowerTheBetter(value, thresholds.DepthOfInheritance);
-
-        private MetricGrade GradeSourceLines(int value)
-        {
-            return MetricGrade.Good;
-        }
-
-        private MetricGrade GradeExecutableLines(int value)
-        {
-            return MetricGrade.Good;
-        }
-
-        private MetricGrade GradeHigherTheBetter(int value, GradingThreshold cfg)
-        {
-            if (value < cfg.Poor) return MetricGrade.Bad;
-            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
-            else return MetricGrade.Good;
-        }
-
-        private MetricGrade GradeLowerTheBetter(int value, GradingThreshold cfg)
-        {
-            if (value < cfg.Poor) return MetricGrade.Good;
-            else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;
-            else return MetricGrade.Bad;
+                default:
+                    return DeltaSeverity.Irrelevant;
+            }
         }
 
         #endregion Private Methods

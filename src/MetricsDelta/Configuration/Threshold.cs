@@ -1,10 +1,10 @@
 ﻿namespace MetricsDelta.Configuration
 {
-    public class GradingThreshold
+    public class Threshold
     {
         #region Public Constructors
 
-        public GradingThreshold(int poor, int bad)
+        public Threshold(int poor, int bad)
         {
             Poor = poor;
             Bad = bad;
