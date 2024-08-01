@@ -73,14 +73,14 @@ namespace MetricsDelta
         private MetricGrade GradeExecutableLines(int value)
             => GradeLowerTheBetter(value, thresholds.ExecutableLines);
 
-        private MetricGrade GradeHigherTheBetter(int value, GradingThreshold cfg)
+        private MetricGrade GradeHigherTheBetter(int value, Threshold cfg)
         {
             if (value > cfg.Poor) return MetricGrade.Good;
             else if (value <= cfg.Poor && value > cfg.Bad) return MetricGrade.Poor;
             else return MetricGrade.Bad;
         }
 
-        private MetricGrade GradeLowerTheBetter(int value, GradingThreshold cfg)
+        private MetricGrade GradeLowerTheBetter(int value, Threshold cfg)
         {
             if (value < cfg.Poor) return MetricGrade.Good;
             else if (value >= cfg.Poor && value < cfg.Bad) return MetricGrade.Poor;

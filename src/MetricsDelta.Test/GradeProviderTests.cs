@@ -30,24 +30,24 @@ namespace MetricsDelta.Test
 
         [Theory]
         [InlineData(MetricDefinitions.MaintainabilityIndex, 0, MetricGrade.Bad)]
-        [InlineData(MetricDefinitions.MaintainabilityIndex, 19, MetricGrade.Poor)]
+        [InlineData(MetricDefinitions.MaintainabilityIndex, 49, MetricGrade.Poor)]
         [InlineData(MetricDefinitions.MaintainabilityIndex, 100, MetricGrade.Good)]
         [InlineData(MetricDefinitions.ClassCoupling, 0, MetricGrade.Good)]
         [InlineData(MetricDefinitions.ClassCoupling, 50, MetricGrade.Poor)]
         [InlineData(MetricDefinitions.ClassCoupling, 100, MetricGrade.Bad)]
         [InlineData(MetricDefinitions.DepthOfInheritance, 0, MetricGrade.Good)]
-        [InlineData(MetricDefinitions.DepthOfInheritance, 4, MetricGrade.Poor)]
-        [InlineData(MetricDefinitions.DepthOfInheritance, 7, MetricGrade.Bad)]
+        [InlineData(MetricDefinitions.DepthOfInheritance, 12, MetricGrade.Poor)]
+        [InlineData(MetricDefinitions.DepthOfInheritance, 15, MetricGrade.Bad)]
         [InlineData(MetricDefinitions.CyclomaticComplexity, 0, MetricGrade.Good)]
         [InlineData(MetricDefinitions.CyclomaticComplexity, 80, MetricGrade.Poor)]
         [InlineData(MetricDefinitions.CyclomaticComplexity, 400, MetricGrade.Bad)]
         [InlineData(MetricDefinitions.SourceLines, 0, MetricGrade.Good)]
-        [InlineData(MetricDefinitions.SourceLines, 5000, MetricGrade.Poor)]
-        [InlineData(MetricDefinitions.SourceLines, 12000, MetricGrade.Bad)]
+        [InlineData(MetricDefinitions.SourceLines, int.MaxValue / 2, MetricGrade.Poor)]
+        [InlineData(MetricDefinitions.SourceLines, int.MaxValue, MetricGrade.Bad)]
         [InlineData(MetricDefinitions.ExecutableLines, 0, MetricGrade.Good)]
-        [InlineData(MetricDefinitions.ExecutableLines, 2500, MetricGrade.Poor)]
-        [InlineData(MetricDefinitions.ExecutableLines, 12000, MetricGrade.Bad)]
-        public void GetValueGrade_CheckNonExistingMetricNameWithValue_ExpectCorrectGrade(string metricName, int value, MetricGrade expectedGrade)
+        [InlineData(MetricDefinitions.ExecutableLines, int.MaxValue / 2, MetricGrade.Poor)]
+        [InlineData(MetricDefinitions.ExecutableLines, int.MaxValue, MetricGrade.Bad)]
+        public void GetValueGrade_CheckExistingMetricNameWithValue_ExpectCorrectGrade(string metricName, int value, MetricGrade expectedGrade)
         {
             // Arrange
             mockOptions.Setup(item => item.Value).Returns(new GradingThresholds());

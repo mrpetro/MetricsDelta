@@ -44,6 +44,7 @@ var host = hostBuilder.ConfigureAppConfiguration((hostingContext, cfgBuilder) =>
     hostBuilder.ConfigureServices(sc =>
     {
         sc.Configure<GradingThresholds>(cfgRoot.GetSection("GradingThresholds"));
+        sc.Configure<DeltaSeverityThresholds>(cfgRoot.GetSection("DeltaSeverityThresholds"));
     });
 }).Build();
 

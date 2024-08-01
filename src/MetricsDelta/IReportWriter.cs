@@ -15,9 +15,10 @@ namespace MetricsDelta
 
     public enum DeltaSeverity
     {
-        Irrelevant,
         Improved,
-        Declined
+        Irrelevant,
+        Declined,
+        Degraded
     }
 
     public enum MetricGrade

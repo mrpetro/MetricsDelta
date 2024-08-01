@@ -78,10 +78,12 @@ namespace MetricsDelta
                     break;
 
                 case DeltaSeverity.Declined:
+                    logger.LogWarning(deltaMessage);
+                    break;
+
+                case DeltaSeverity.Degraded:
                     logger.LogError(deltaMessage);
-
                     AnyDeltaDegradations = true;
-
                     break;
 
                 default:
@@ -169,6 +171,9 @@ namespace MetricsDelta
 
                 case DeltaSeverity.Declined:
                     return "(DECLINED) ";
+
+                case DeltaSeverity.Degraded:
+                    return "(DEGRADED) ";
 
                 default:
                     throw new InvalidOperationException($"Unknown DeltaSeverity '{deltaSeverity}'.");

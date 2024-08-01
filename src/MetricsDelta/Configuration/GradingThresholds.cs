@@ -4,12 +4,12 @@
     {
         #region Public Properties
 
-        public GradingThreshold MaintainabilityIndex { get; set; } = new GradingThreshold(20, 10);
-        public GradingThreshold CyclomaticComplexity { get; set; } = new GradingThreshold(50, 300);
-        public GradingThreshold ClassCoupling { get; set; } = new GradingThreshold(10, 70);
-        public GradingThreshold DepthOfInheritance { get; set; } = new GradingThreshold(3, 5);
-        public GradingThreshold ExecutableLines { get; set; } = new GradingThreshold(500, 5000);
-        public GradingThreshold SourceLines { get; set; } = new GradingThreshold(1000, 10000);
+        public Threshold MaintainabilityIndex { get; set; } = new Threshold(50, 20);
+        public Threshold CyclomaticComplexity { get; set; } = new Threshold(50, 300);
+        public Threshold ClassCoupling { get; set; } = new Threshold(10, 70);
+        public Threshold DepthOfInheritance { get; set; } = new Threshold(12, 15);
+        public Threshold ExecutableLines { get; set; } = new Threshold(int.MaxValue / 2, int.MaxValue);
+        public Threshold SourceLines { get; set; } = new Threshold(int.MaxValue / 2, int.MaxValue);
 
 
         #endregion Public Properties
