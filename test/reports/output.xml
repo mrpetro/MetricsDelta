@@ -2,26 +2,38 @@
 <CodeMetricsReport>
   <Targets>
     <Target Name="MetricsDelta.csproj" Status="Existing">
-      <Assembly Name="MetricsDelta, Version=0.1.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
+      <Assembly Name="MetricsDelta, Version=0.3.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
         <Metrics>
-          <Metric Name="MaintainabilityIndex" Value="89" ValueGrade="Good" />
-          <Metric Name="CyclomaticComplexity" Value="234" ValueGrade="Poor" />
-          <Metric Name="ClassCoupling" Value="67" ValueGrade="Poor" />
+          <Metric Name="MaintainabilityIndex" Value="88" ValueGrade="Good" Delta="-1" />
+          <Metric Name="CyclomaticComplexity" Value="263" ValueGrade="Poor" Delta="29" DeltaGrade="Declined" />
+          <Metric Name="ClassCoupling" Value="70" ValueGrade="Bad" Delta="3" />
           <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
-          <Metric Name="SourceLines" Value="1210" ValueGrade="Good" />
-          <Metric Name="ExecutableLines" Value="248" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="1333" ValueGrade="Good" Delta="123" />
+          <Metric Name="ExecutableLines" Value="270" ValueGrade="Good" Delta="22" />
         </Metrics>
       </Assembly>
     </Target>
     <Target Name="MetricsDelta.Test.csproj" Status="Existing">
       <Assembly Name="MetricsDelta.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
         <Metrics>
-          <Metric Name="MaintainabilityIndex" Value="100" ValueGrade="Good" />
-          <Metric Name="CyclomaticComplexity" Value="2" ValueGrade="Good" />
-          <Metric Name="ClassCoupling" Value="2" ValueGrade="Good" />
+          <Metric Name="MaintainabilityIndex" Value="88" ValueGrade="Good" Delta="-12" DeltaGrade="Degraded" />
+          <Metric Name="CyclomaticComplexity" Value="6" ValueGrade="Good" Delta="4" />
+          <Metric Name="ClassCoupling" Value="17" ValueGrade="Poor" Delta="15" DeltaGrade="Degraded" />
           <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
-          <Metric Name="SourceLines" Value="11" ValueGrade="Good" />
-          <Metric Name="ExecutableLines" Value="0" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="99" ValueGrade="Good" Delta="88" />
+          <Metric Name="ExecutableLines" Value="33" ValueGrade="Good" Delta="33" />
+        </Metrics>
+      </Assembly>
+    </Target>
+    <Target Name="MetricsDelta.Test.csproj" Status="Existing">
+      <Assembly Name="MetricsDelta.Test, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" Status="Existing">
+        <Metrics>
+          <Metric Name="MaintainabilityIndex" Value="88" ValueGrade="Good" Delta="-12" DeltaGrade="Degraded" />
+          <Metric Name="CyclomaticComplexity" Value="6" ValueGrade="Good" Delta="4" />
+          <Metric Name="ClassCoupling" Value="17" ValueGrade="Poor" Delta="15" DeltaGrade="Degraded" />
+          <Metric Name="DepthOfInheritance" Value="1" ValueGrade="Good" />
+          <Metric Name="SourceLines" Value="99" ValueGrade="Good" Delta="88" />
+          <Metric Name="ExecutableLines" Value="33" ValueGrade="Good" Delta="33" />
         </Metrics>
       </Assembly>
     </Target>

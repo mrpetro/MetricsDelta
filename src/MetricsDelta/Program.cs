@@ -91,7 +91,7 @@ try
     };
 
     var reportVisitor = host.Services.GetRequiredService<IReportVisitor>();
-    var deltaComparer = new ReportComparer(reportVisitor);
+    var deltaComparer = new ReportComparer(reportVisitor, logger);
     deltaComparer.CompareAsync(previousModel, currentModel, tokenSource.Token).GetAwaiter().GetResult();
 
     var result = 0;
