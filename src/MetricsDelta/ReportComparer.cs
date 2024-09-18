@@ -1,6 +1,8 @@
 ﻿using MetricsDelta;
 using MetricsDelta.Helpers;
 using MetricsDelta.Model;
+using Microsoft.Extensions.Logging;
+using System;
 using System.Runtime.CompilerServices;
 using System.Threading;
 
@@ -11,17 +13,19 @@ namespace MetricsDelta
         #region Private Fields
 
         private readonly IReportVisitor visitor;
+        private readonly ILogger logger;
 
-        #endregion
+        #endregion Private Fields
 
         #region Public Constructors
 
-        public ReportComparer(IReportVisitor visitor)
+        public ReportComparer(IReportVisitor visitor, ILogger logger)
         {
             this.visitor = visitor;
+            this.logger = logger;
         }
 
-        #endregion
+        #endregion Public Constructors
 
         #region Public Methods
 
@@ -34,11 +38,16 @@ namespace MetricsDelta
 
             visitor.BeginVisitReport();
 
-            var previousTargetsLookup = previous.Targets.ToDictionary(item => item.Name, item => item);
-            var currentTargetsLookup = current.Targets.ToDictionary(item => item.Name, item => item);
+            var previousTargetsLookup = PrepareTargetsLookup(previous.Targets);
+            var currentTargetsLookup = PrepareTargetsLookup(current.Targets);
 
             foreach (var currentTarget in current.Targets)
             {
+                if (currentTarget.Name is null)
+                {
+                    continue;
+                }
+
                 if (!previousTargetsLookup.TryGetValue(currentTarget.Name, out var previousTarget))
                 {
                     await ProcessNewTargetAsync(currentTarget, cancellationToken);
@@ -50,6 +59,11 @@ namespace MetricsDelta
 
             foreach (var previousTarget in previous.Targets)
             {
+                if (previousTarget.Name is null)
+                {
+                    continue;
+                }
+
                 if (!currentTargetsLookup.ContainsKey(previousTarget.Name))
                 {
                     await ProcessRemovedTargetAsync(previousTarget, cancellationToken);
@@ -61,9 +75,30 @@ namespace MetricsDelta
             await Task.CompletedTask;
         }
 
-        #endregion
+        #endregion Public Methods
 
         #region Private Methods
+
+        private IDictionary<string, ITarget> PrepareTargetsLookup(IEnumerable<ITarget> targets)
+        {
+            var targetsLookup = new Dictionary<string, ITarget>();
+            foreach (var p in targets)
+            {
+                if (p.Name is null)
+                {
+                    continue;
+                }
+
+                if (targetsLookup.ContainsKey(p.Name))
+                {
+                    logger.LogWarning($"Duplicated Target entry '{p.Name}' detected. Duplicated Target will be discared in report.");
+                }
+
+                targetsLookup[p.Name] = p;
+            }
+
+            return targetsLookup;
+        }
 
         private async Task ProcessNewAssemblyAsync(IAssembly assembly, CancellationToken cancellationToken)
         {
@@ -93,7 +128,7 @@ namespace MetricsDelta
 
             visitor.BeginVisitTarget(target.Name, DeltaState.New);
 
-            if(target.Assembly is not null)
+            if (target.Assembly is not null)
                 await ProcessNewAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.New);
@@ -142,7 +177,7 @@ namespace MetricsDelta
 
             visitor.BeginVisitTarget(currentTarget.Name, DeltaState.Existing);
 
-            if(previousTarget.Assembly is not null && currentTarget.Assembly is not null)
+            if (previousTarget.Assembly is not null && currentTarget.Assembly is not null)
                 await ProcessExistingAssemblyAsync(previousTarget.Assembly, currentTarget.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(currentTarget.Name, DeltaState.Existing);
@@ -156,7 +191,7 @@ namespace MetricsDelta
 
             visitor.BeginVisitTarget(target.Name, DeltaState.Removed);
 
-            if(target.Assembly is not null)
+            if (target.Assembly is not null)
                 await ProcessRemovedAssemblyAsync(target.Assembly, cancellationToken);
 
             visitor.EndVisitTarget(target.Name, DeltaState.Removed);
@@ -175,6 +210,6 @@ namespace MetricsDelta
             await Task.CompletedTask;
         }
 
-        #endregion
+        #endregion Private Methods
     }
 }
